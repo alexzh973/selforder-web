@@ -1,0 +1,12 @@
+﻿
+одинаковый ID и наименование, но разные коды 1С:
+SELECT     ID, Name, qty
+FROM         (SELECT     ID, Name, COUNT(*) AS qty
+                       FROM          (SELECT DISTINCT GOOD.ID, GOOD.Name, OWNG.GoodCode
+                                               FROM          GOOD INNER JOIN
+                                                                      OWNG ON OWNG.GoodId = GOOD.ID) AS derivedtbl_1
+                       GROUP BY ID, Name) AS derivedtbl_2
+WHERE     (qty > 1)
+ORDER BY qty DESC
+
+

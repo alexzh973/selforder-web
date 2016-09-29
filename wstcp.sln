@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wstcp", "wstcp.csproj", "{F5B7BD7E-0374-417E-9B38-710F3029D58E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53C98BA9-2D71-4D98-B622-652CD946CC54} = {53C98BA9-2D71-4D98-B622-652CD946CC54}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ensoCore", "..\ensoCore\ensoCore.csproj", "{53C98BA9-2D71-4D98-B622-652CD946CC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrabGoodiesImgsFromENS", "..\GrabGoodiesImgsFromENS\GrabGoodiesImgsFromENS.csproj", "{C09696FB-8E4B-4247-A8CF-3BC09566997B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selforderlib", "..\selforderlib\selforderlib.csproj", "{FE24071A-2E8D-4823-B981-70A796A3C951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wstcpadmin", "..\wstcpadmin\wstcpadmin.csproj", "{AFE19F40-75D2-4A0D-A778-FCC342290D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stadyLINQ", "..\stadyLINQ\stadyLINQ.csproj", "{A4357C63-9916-4C0C-9B25-D00C60F1B41C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E} = {F5B7BD7E-0374-417E-9B38-710F3029D58E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isantur", "..\isantur\isantur.csproj", "{D224192F-3774-49E0-9D63-0700339D0058}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE24071A-2E8D-4823-B981-70A796A3C951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE24071A-2E8D-4823-B981-70A796A3C951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE24071A-2E8D-4823-B981-70A796A3C951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE24071A-2E8D-4823-B981-70A796A3C951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4357C63-9916-4C0C-9B25-D00C60F1B41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4357C63-9916-4C0C-9B25-D00C60F1B41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4357C63-9916-4C0C-9B25-D00C60F1B41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4357C63-9916-4C0C-9B25-D00C60F1B41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D224192F-3774-49E0-9D63-0700339D0058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D224192F-3774-49E0-9D63-0700339D0058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D224192F-3774-49E0-9D63-0700339D0058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D224192F-3774-49E0-9D63-0700339D0058}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

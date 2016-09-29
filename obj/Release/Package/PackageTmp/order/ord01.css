@@ -1,0 +1,166 @@
+﻿.waitload {
+    background-image: url('../simg/ajax-loader-line.gif');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.qtyfield {
+    width: 50px;
+}
+
+.descritem {
+    width: 150px;
+}
+
+.blocktn {
+    font-size: 100%;
+    margin: 5px;
+    padding: 5px 5px 5px 64px;
+    border: 1px dotted #BBBBBB;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+a.tnlink {
+    color: #0057A8;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.tnlink:hover {
+    text-decoration: underline;
+}
+a.tklink {
+    color: #0057A8;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-decoration: none;
+}
+a.tklink-active {
+    color: #0057A8;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid #ED7A44;
+    text-decoration: none;
+}
+
+a.tklink:hover, a.tklink-active:hover {
+    text-decoration: underline;
+}
+
+.blocktk {
+    padding-left: 0px;
+}
+
+    .blocktk ul li {
+        /*list-style-type:none; */
+        display: inline-block;
+    }
+
+label.check {
+    font-weight: bold;
+    color: #0000FF;
+    font-size: 90%;
+}
+
+label.uncheck {
+    font-weight: normal;
+    color: #777777;
+    font-size: 90%;
+}
+
+.finded {
+    background-color: Orange;
+    color: #000000;
+}
+
+img.arrowtolist {
+    border: 0;
+    vertical-align: middle;
+}
+
+    img.arrowtolist:hover {
+        border: 0;
+        vertical-align: middle;
+        background-image: url('../simg/32/arrow16x32sh.png');
+    }
+
+.selitem {
+    background-color: #FFD991;
+}
+
+.itemover {
+    background-color: #eef;
+}
+
+.goodincash-little {
+    font-size: smaller;
+    color: Green;
+    font-weight: normal;
+}
+
+.goodincash-full {
+    font-size: smaller;
+    color: Green;
+    font-weight: bold;
+}
+
+.goodbyorder {
+    font-size: smaller;
+    color: Navy;
+}
+
+.goodsoon {
+    font-size: smaller;
+    color: Olive;
+}
+
+.microimg {
+    position: absolute;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+}
+
+.eye {
+    cursor: pointer;
+    border: 0;
+}
+
+
+#tns {
+    position: absolute;
+    background-color: #EFF3FB;
+    padding: 5px;
+    border: 1px solid #999999;
+    line-height: 14pt;
+    display: none;
+}
+
+.sourcelist-active {
+    background-image: url("../simg/16/tick.png");
+    padding-left: 20px !important;
+    background-repeat: no-repeat;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: #0057A8;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.sourcelist-passive {
+    font-weight: normal !important;
+    text-decoration: underline !important;
+    color: #636262;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.clear-filter {
+    background-image: url('../simg/16/filterdel.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 2px 2px 2px 18px !important;
+}
+.brighttab {
+    background-color: #ffa500 !important;
+    color: white !important;
+}

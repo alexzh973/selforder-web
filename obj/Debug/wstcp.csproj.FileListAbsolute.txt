@@ -1,0 +1,46 @@
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\obj\Debug\ResolveAssemblyReference.cache
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\bin\wstcp.dll
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\bin\wstcp.pdb
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\bin\ensoCore.dll
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\bin\ensoCore.pdb
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\obj\Debug\wstcp.dll
+d:\мои документы\visual studio 2010\Projects\wstcp\wstcp\obj\Debug\wstcp.pdb
+D:\Dropbox\develop\projects\wstcp\bin\wstcp.dll
+D:\Dropbox\develop\projects\wstcp\bin\wstcp.pdb
+D:\Dropbox\develop\projects\wstcp\bin\ensoCore.pdb
+D:\Dropbox\develop\projects\wstcp\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\develop\projects\wstcp\obj\Debug\wstcp.dll
+D:\Dropbox\develop\projects\wstcp\obj\Debug\wstcp.pdb
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\bin\wstcp.dll
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\bin\wstcp.pdb
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\bin\ensoCore.pdb
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\obj\Debug\wstcp.dll
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\obj\Debug\wstcp.pdb
+D:\Мои Документы\Visual Studio 2010\Projects\wstcp\bin\ensoCore.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\wstcp.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\wstcp.pdb
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\ensoCore.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\ensoCore.pdb
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.pdb
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\order\orderajax.ashx
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\order\orderajax.ashx.cs
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\selforderlib.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\selforderlib.pdb
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\order\orderajax.ashx
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\order\orderajax.ashx.cs
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\wstcp.dll.config
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\wstcp.dll
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\wstcp.pdb
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\ensoCore.dll
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\selforderlib.dll
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\selforderlib.pdb
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\ensoCore.pdb
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.dll
+D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\wstcp.pdb
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.Excel.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.Microsoft.Office.Core.dll
+D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.VBIDE.dll

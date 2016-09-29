@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wstcp", "wstcp.csproj", "{F5B7BD7E-0374-417E-9B38-710F3029D58E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53C98BA9-2D71-4D98-B622-652CD946CC54} = {53C98BA9-2D71-4D98-B622-652CD946CC54}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ensoCore", "..\ensoCore\ensoCore.csproj", "{53C98BA9-2D71-4D98-B622-652CD946CC54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

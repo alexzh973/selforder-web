@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="wstcp.adminmaster" %>
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="ru"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="ru"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="ru"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="ru"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../js/jquery.js"></script>
+    <link href="../js/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="../js/math.js"></script>
+    <script src="../js/ensoCom.js"></script>
+    <link href="../css/framework1000.css" rel="stylesheet" />
+    		<!--[if lt IE 9]>
+			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="../custom.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var sid = '<%= Session.SessionID %>';
+     </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="dialog">
+    </div>
+    <form id="form1" runat="server">
+    <div class="g">
+<%--        <div class="f-nav-bar">
+        	<div class="f-nav-bar-body">
+        		<div class="f-nav-bar-title">--%>
+        			<a href="../default.aspx">santechportal.ru</a>
+        		<%--</div><!-- f-nav-bar-title -->
+        		
+        	</div><!-- f-nav-bar-body -->
+        </div>--%>
+        <div class="f-nav-bar">
+        	<div class="f-nav-bar-body">
+        		<ul class="f-nav">
+                    <asp:Literal ID="lbTopMenu" runat="server"></asp:Literal>
+        			
+        		</ul><!-- f-nav -->
+        	</div><!-- f-nav-bar-body -->
+        </div><!-- f-nav-bar -->
+        
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+                
+                        
+
+
+            
+            
+        </asp:ContentPlaceHolder>
+    <div>last tik <asp:Label ID="lbLastTik" runat="server" Text=""></asp:Label></div>
+    </div>
+
+    </form>
+</body>
+</html>

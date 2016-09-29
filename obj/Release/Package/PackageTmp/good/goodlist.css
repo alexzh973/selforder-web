@@ -1,0 +1,65 @@
+﻿.microimg {
+    position: absolute;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+}
+
+.eye {
+    cursor: pointer;
+    border: 0;
+}
+
+
+.menuSys td {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #0057A8;
+}
+
+.blocktn {
+    font-size: 100%;
+    margin: 5px;
+    padding: 5px 5px 5px 14px;
+    border: 1px dotted #BBBBBB;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+a.tnlink {
+    color: #0057A8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    a.tnlink:hover {
+        text-decoration: underline;
+    }
+
+a.tklink {
+    color: #0057A8;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-decoration: none;
+}
+
+a.tklink-active {
+    color: #0057A8;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid #ED7A44;
+    text-decoration: none;
+}
+
+    a.tklink:hover, a.tklink-active:hover {
+        text-decoration: underline;
+    }
+
+.blocktk {
+    padding-left: 0px;
+}
+
+    .blocktk ul li {
+        /*list-style-type:none; */
+        display: inline-block;
+    }

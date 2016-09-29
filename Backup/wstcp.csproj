@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5B7BD7E-0374-417E-9B38-710F3029D58E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wstcp</RootNamespace>
+    <AssemblyName>wstcp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ensoCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ensoCore\bin\Debug\ensoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="obout_Interface, Version=4.0.10.0, Culture=neutral, PublicKeyToken=d5dff6913a9d6649, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="account\CaptchaControl.ascx" />
+    <Content Include="admin\admin.aspx" />
+    <Content Include="admin\admin_partner.aspx" />
+    <Content Include="admin\admin_sysmsg.aspx" />
+    <Content Include="admin\admin_syssetting.aspx" />
+    <Content Include="admin\admin_usr.aspx" />
+    <Content Include="clock.gif" />
+    <Content Include="common\gimail.aspx" />
+    <Content Include="common\help.aspx" />
+    <Content Include="common\help.htm" />
+    <Content Include="custom.css" />
+    <Content Include="default.aspx" />
+    <Content Include="empty.htm" />
+    <Content Include="error.aspx" />
+    <Content Include="error.htm" />
+    <Content Include="fonts\roboto.css" />
+    <Content Include="good\gdetail.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="HTMLPage1.htm" />
+    <Content Include="js\ensoCom.js" />
+    <Content Include="good\goodlist.aspx" />
+    <Content Include="js\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="js\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="js\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="js\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="js\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="js\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="js\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="js\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="js\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="js\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="js\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\images\ui-icons_454545_256x240.png" />
+    <Content Include="js\images\ui-icons_888888_256x240.png" />
+    <Content Include="js\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="js\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="js\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="js\jquery-ui.css" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery-ui.min.css" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery-ui.structure.css" />
+    <Content Include="js\jquery-ui.structure.min.css" />
+    <Content Include="js\jquery-ui.theme.css" />
+    <Content Include="js\jquery-ui.theme.min.css" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\math.js" />
+    <Content Include="account\login.aspx" />
+    <Content Include="media\recl\b0100007323.png" />
+    <Content Include="media\recl\b0100015906.png" />
+    <Content Include="media\recl\b0100021594.png" />
+    <Content Include="media\recl\b0100030051.png" />
+    <Content Include="media\screens\ar_dowleft.jpg" />
+    <Content Include="media\screens\ar_right.jpg" />
+    <Content Include="media\screens\p1.jpg" />
+    <Content Include="media\screens\p2.jpg" />
+    <Content Include="media\screens\p3.jpg" />
+    <Content Include="media\screens\p4.jpg" />
+    <Content Include="media\screens\p5.jpg" />
+    <Content Include="media\screens\p6.jpg" />
+    <Content Include="media\screens\s1.jpg" />
+    <Content Include="media\screens\s2.jpg" />
+    <Content Include="media\screens\s3.jpg" />
+    <Content Include="media\screens\s4.jpg" />
+    <Content Include="media\screens\s5.jpg" />
+    <Content Include="media\screens\s6.jpg" />
+    <Content Include="msg.aspx" />
+    <Content Include="nsigoodies.aspx" />
+    <Content Include="goodsx.asmx" />
+    <Content Include="common\p_p.aspx" />
+    <Content Include="order\detailfly.aspx" />
+    <Content Include="simg\16\add.png" />
+    <Content Include="simg\16\cancel.png" />
+    <Content Include="simg\16\clnd.gif" />
+    <Content Include="simg\16\delete.png" />
+    <Content Include="simg\16\document-accept.png" />
+    <Content Include="simg\16\document-add.png" />
+    <Content Include="simg\16\document-delete.png" />
+    <Content Include="simg\16\document-edit.png" />
+    <Content Include="simg\16\doc_view.png" />
+    <Content Include="simg\16\email.png" />
+    <Content Include="simg\16\folder.png" />
+    <Content Include="simg\16\lock_c.png" />
+    <Content Include="simg\16\lock_o.png" />
+    <Content Include="simg\16\page_copy.png" />
+    <Content Include="simg\16\printer.png" />
+    <Content Include="simg\16\save.png" />
+    <Content Include="simg\16\tick.png" />
+    <Content Include="simg\32\arrow16x32.png" />
+    <Content Include="simg\32\arrow16x32sh.png" />
+    <Content Include="simg\32\cart.png" />
+    <Content Include="simg\32\ph.png" />
+    <Content Include="simg\bubble.gif" />
+    <Content Include="simg\bubble_filler.gif" />
+    <Content Include="simg\logo.png" />
+    <Content Include="simg\logo_miniw.png" />
+    <Content Include="simg\point.png" />
+    <Content Include="tooltip.css" />
+    <Content Include="UC\Alphabet.ascx" />
+    <Content Include="UC\BreadPath.ascx" />
+    <Content Include="UC\CommandPanel4List.ascx" />
+    <Content Include="UC\CommandPanel4Profile.ascx" />
+    <Content Include="UC\TabControl.ascx" />
+    <Content Include="UC\uc_base.ascx" />
+    <Content Include="UC\UploadThrumbPicture.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Проверка на дубли.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="account\CaptchaControl.ascx.cs">
+      <DependentUpon>CaptchaControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\CaptchaControl.ascx.designer.cs">
+      <DependentUpon>CaptchaControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="account\CaptchaHandler.ashx.cs">
+      <DependentUpon>CaptchaHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_partner.aspx.cs">
+      <DependentUpon>admin_partner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_partner.aspx.designer.cs">
+      <DependentUpon>admin_partner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_sysmsg.aspx.cs">
+      <DependentUpon>admin_sysmsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_sysmsg.aspx.designer.cs">
+      <DependentUpon>admin_sysmsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_syssetting.aspx.cs">
+      <DependentUpon>admin_syssetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_syssetting.aspx.designer.cs">
+      <DependentUpon>admin_syssetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_usr.aspx.cs">
+      <DependentUpon>admin_usr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_usr.aspx.designer.cs">
+      <DependentUpon>admin_usr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\gimail.aspx.cs">
+      <DependentUpon>gimail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\gimail.aspx.designer.cs">
+      <DependentUpon>gimail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="good\gdetail.ashx.cs">
+      <DependentUpon>gdetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="good\gdetail.aspx.cs">
+      <DependentUpon>gdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="good\gdetail.aspx.designer.cs">
+      <DependentUpon>gdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="good\goodlist.aspx.cs">
+      <DependentUpon>goodlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="good\goodlist.aspx.designer.cs">
+      <DependentUpon>goodlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="import.ashx.cs">
+      <DependentUpon>import.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportAsync.cs" />
+    <Compile Include="account\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="models\cMath.cs" />
+    <Compile Include="models\CurrentCfg.cs" />
+    <Compile Include="models\eLog.cs" />
+    <Compile Include="models\EmailMessage.cs" />
+    <Compile Include="models\HelpersPath.cs" />
+    <Compile Include="models\IAM.cs" />
+    <Compile Include="models\Order.cs" />
+    <Compile Include="models\pUser.cs" />
+    <Compile Include="models\pUserInfo.cs" />
+    <Compile Include="models\Subject.cs" />
+    <Compile Include="models\UserFilter.cs" />
+    <Compile Include="models\webInfo.cs" />
+    <Compile Include="models\webIO.cs" />
+    <Compile Include="models\_eObject.cs" />
+    <Compile Include="models\_sObject.cs" />
+    <Compile Include="msg.ashx.cs">
+      <DependentUpon>msg.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="msg.aspx.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="msg.aspx.designer.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nsigoodies.aspx.cs">
+      <DependentUpon>nsigoodies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nsigoodies.aspx.designer.cs">
+      <DependentUpon>nsigoodies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="goodsx.asmx.cs">
+      <DependentUpon>goodsx.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="common\mainpage.Master.cs">
+      <DependentUpon>mainpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\mainpage.Master.designer.cs">
+      <DependentUpon>mainpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="models\NSIGoodModels.cs" />
+    <Compile Include="models\NSImeta.cs" />
+    <Compile Include="models\NSIOwnerModels.cs" />
+    <Compile Include="order\detailfly.aspx.cs">
+      <DependentUpon>detailfly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order\detailfly.aspx.designer.cs">
+      <DependentUpon>detailfly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="models\NSIWarehouseModels.cs" />
+    <Compile Include="common\p_p.aspx.cs">
+      <DependentUpon>p_p.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\p_p.aspx.designer.cs">
+      <DependentUpon>p_p.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\Alphabet.ascx.cs">
+      <DependentUpon>Alphabet.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\Alphabet.ascx.designer.cs">
+      <DependentUpon>Alphabet.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\BreadPath.ascx.cs">
+      <DependentUpon>BreadPath.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\BreadPath.ascx.designer.cs">
+      <DependentUpon>BreadPath.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\CommandPanel4List.ascx.cs">
+      <DependentUpon>CommandPanel4List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\CommandPanel4List.ascx.designer.cs">
+      <DependentUpon>CommandPanel4List.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\CommandPanel4Profile.ascx.cs">
+      <DependentUpon>CommandPanel4Profile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\CommandPanel4Profile.ascx.designer.cs">
+      <DependentUpon>CommandPanel4Profile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\TabControl.ascx.cs">
+      <DependentUpon>TabControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\TabControl.ascx.designer.cs">
+      <DependentUpon>TabControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\uc_base.ascx.cs">
+      <DependentUpon>uc_base.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\uc_base.ascx.designer.cs">
+      <DependentUpon>uc_base.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UploadThrumbPicture.ascx.cs">
+      <DependentUpon>UploadThrumbPicture.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\UploadThrumbPicture.ascx.designer.cs">
+      <DependentUpon>UploadThrumbPicture.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="common\mainpage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="media\photo\" />
+    <Folder Include="simg\phu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="account\CaptchaHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fonts\roboto-black.eot" />
+    <None Include="fonts\roboto-black.ttf" />
+    <None Include="fonts\roboto-black.woff" />
+    <None Include="fonts\roboto-blackitalic.eot" />
+    <None Include="fonts\roboto-blackitalic.ttf" />
+    <None Include="fonts\roboto-blackitalic.woff" />
+    <None Include="fonts\roboto-bold.eot" />
+    <None Include="fonts\roboto-bold.ttf" />
+    <None Include="fonts\roboto-bold.woff" />
+    <None Include="fonts\roboto-boldcondensed.eot" />
+    <None Include="fonts\roboto-boldcondensed.ttf" />
+    <None Include="fonts\roboto-boldcondensed.woff" />
+    <None Include="fonts\roboto-boldcondenseditalic.eot" />
+    <None Include="fonts\roboto-boldcondenseditalic.ttf" />
+    <None Include="fonts\roboto-boldcondenseditalic.woff" />
+    <None Include="fonts\roboto-bolditalic.eot" />
+    <None Include="fonts\roboto-bolditalic.ttf" />
+    <None Include="fonts\roboto-bolditalic.woff" />
+    <None Include="fonts\roboto-condensed.eot" />
+    <None Include="fonts\roboto-condensed.ttf" />
+    <None Include="fonts\roboto-condensed.woff" />
+    <None Include="fonts\roboto-condenseditalic.eot" />
+    <None Include="fonts\roboto-condenseditalic.ttf" />
+    <None Include="fonts\roboto-condenseditalic.woff" />
+    <None Include="fonts\roboto-italic.eot" />
+    <None Include="fonts\roboto-italic.ttf" />
+    <None Include="fonts\roboto-italic.woff" />
+    <None Include="fonts\roboto-light.eot" />
+    <None Include="fonts\roboto-light.ttf" />
+    <None Include="fonts\roboto-light.woff" />
+    <None Include="fonts\roboto-lightitalic.eot" />
+    <None Include="fonts\roboto-lightitalic.ttf" />
+    <None Include="fonts\roboto-lightitalic.woff" />
+    <None Include="fonts\roboto-medium.eot" />
+    <None Include="fonts\roboto-medium.ttf" />
+    <None Include="fonts\roboto-medium.woff" />
+    <None Include="fonts\roboto-mediumitalic.eot" />
+    <None Include="fonts\roboto-mediumitalic.ttf" />
+    <None Include="fonts\roboto-mediumitalic.woff" />
+    <None Include="fonts\roboto-regular.eot" />
+    <None Include="fonts\roboto-regular.ttf" />
+    <None Include="fonts\roboto-regular.woff" />
+    <None Include="fonts\roboto-thin.eot" />
+    <None Include="fonts\roboto-thin.ttf" />
+    <None Include="fonts\roboto-thin.woff" />
+    <None Include="fonts\roboto-thinitalic.eot" />
+    <None Include="fonts\roboto-thinitalic.ttf" />
+    <None Include="fonts\roboto-thinitalic.woff" />
+    <None Include="fonts\robotocondensed-light.eot" />
+    <None Include="fonts\robotocondensed-light.ttf" />
+    <None Include="fonts\robotocondensed-light.woff" />
+    <None Include="fonts\robotocondensed-lightitalic.eot" />
+    <None Include="fonts\robotocondensed-lightitalic.ttf" />
+    <None Include="fonts\robotocondensed-lightitalic.woff" />
+    <None Include="fonts\robotoslab-bold.eot" />
+    <None Include="fonts\robotoslab-bold.ttf" />
+    <None Include="fonts\robotoslab-bold.woff" />
+    <None Include="fonts\robotoslab-light.eot" />
+    <None Include="fonts\robotoslab-light.ttf" />
+    <None Include="fonts\robotoslab-light.woff" />
+    <None Include="fonts\robotoslab-regular.eot" />
+    <None Include="fonts\robotoslab-regular.ttf" />
+    <None Include="fonts\robotoslab-regular.woff" />
+    <None Include="fonts\robotoslab-thin.eot" />
+    <None Include="fonts\robotoslab-thin.ttf" />
+    <None Include="fonts\robotoslab-thin.woff" />
+    <Content Include="good\gdetail.ashx" />
+    <Content Include="msg.ashx" />
+    <Content Include="import.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63992</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

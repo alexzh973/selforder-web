@@ -1,0 +1,242 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mainpage.master.cs" Inherits="wstcp.mainpage" %>
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <link href="../js/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="../js/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="../js/jquery-ui.theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="../js/ensoCom.js" type="text/javascript"></script>
+    <script src="../js/math.js" type="text/javascript"></script>
+    <link href="../custom.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .slow
+        {
+        }
+    </style>
+    <script type="text/javascript">
+        function showwait() {
+
+            //$("#waitcursor").show();
+        }
+    </script>
+    <style type="text/css">
+        #trheadsite
+        {
+            background-color: #7191A8;
+            height: 64px;
+        }
+        #trheadsite td
+        {
+            padding: 0;
+            margin: 0;
+        }
+        #qmsg
+        {
+            position:absolute;
+            left:100px;
+            top:50px;
+            width:500px;
+            border:1px solid #FFCC66;
+            background-color: Yellow;
+            color: Black;
+            text-align:center;
+            padding:5px;            
+            display: none;
+            
+        }
+    </style>    
+    <script type="text/javascript">
+        var sid = '<%= Session.SessionID %>';
+
+    function checksysmsg() {
+        //alert('привет' + sid);
+        $.ajax({
+            url: '../msg.ashx?act=sysmsg&sid=' + sid,
+            success: function (data) {
+                
+                $('#qmsg').text(data);
+                if ($('#qmsg').text().trim() == '') {
+                    $('#qmsg').hide();
+                }
+                else {
+
+                    $('#qmsg').css("top", "" + ($('#coord').offset().top + 50)+"px");
+                    $('#qmsg').show();
+                    
+
+
+                }
+            }
+        });
+	}
+	
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: #EDEDED; padding: 0 0 20px 0; margin: 0;"  oncopy="return false;" oncontextmenu="return false;"><span id="coord"></span><div id="qmsg"></div>
+    <div id="dialog">
+    </div>
+    <div>
+    <form id="form1" runat="server" onsubmit="showwait()">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr id="trheadsite">
+            <td style=" text-align:center;vertical-align:middle;"> 
+            </td>
+            <td style=" vertical-align:middle;">
+            <div class="floatLeft"><a class="bold white" href="http://www.santur.ru" target="_blank" title="перейти на основной сайт УЦСК"><img src='../simg/logo.png' alt="УЦСК Сантехкомплект Урал"   style=" border:0; text-align: center" /></a></div>
+                <div class="floatLeft" style="padding: 4px">
+                    <h1 class="white">
+                        Самостоятельная заявка 
+                    </h1>
+                    <p class="white">
+                        УЦСК Сантехкомплект Урал</p>
+                </div>
+                <div class="floatRight white" style="padding: 8px">
+                    
+                    <strong class="normalsize">
+                    <%
+                        wstcp.IAM iam = wstcp.IAM.GetMe(Session.SessionID);
+                    %>
+                        <%=iam.Name %></strong>
+                    <br />
+                    <%
+                        if (iam.ID >= 100000)
+                        {
+                    %>
+                    <a class="white" href="../account/login.aspx?act=exit">выход</a>
+                    <%
+                                    }
+                                    else
+                                    {
+                    %>
+                    <a class="white" href="../account/login.aspx">авторизация</a> | <a class="white"
+                        href="../account/login.aspx?act=new">не зарегистрированы?</a><%
+                        }
+                     
+                        %><br/><br/><div><a class="bold white" href="http://www.santur.ru" target="_blank">перейти на сайт www.SANTUR.ru</a></div>
+                </div>
+                <div style="clear: both;">
+                </div>
+            </td>
+            <td >
+            </td>
+        </tr>
+        <tr style="background-color: #FEFEFE;">
+            <td>
+            </td>
+            <td>
+                <div style="padding: 5px; margin: -5px; text-align: center" id="mainmenu">
+                    <div style="float: left;" >
+                        <asp:Literal ID="blockMainMenu" runat="server"></asp:Literal>
+                    </div>
+                    <div style="float: right">
+                        <asp:Literal ID="blockAdminMenu" runat="server"></asp:Literal>
+                    </div>
+                    <div style="clear: both;">
+                    </div>
+                </div>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr style="background-color: #FEFEFE;">
+            <td colspan="3" style="box-shadow: 0px 5px 4px -3px; padding: 5px">
+            </td>
+        </tr>
+        <tr>
+            <td width="40%">
+               &nbsp; 
+            </td>
+            <td valign="top">
+                <br />
+                <table width="1000px" style="height: 100%;" cellpadding="0" cellspacing="0">
+                   
+                    <tr>
+                        <td style="padding: 0; margin: 0; width:1px;">
+                            <img src='../simg/point.png' width="1px" height="700px" alt="" />
+                        </td>
+                        
+                        <td id="leftplace" runat="server" style="padding:5px; width: 25%;" Visible="false" >
+                        <div class="contentpanel">
+                            <asp:ContentPlaceHolder ID="place_Left" runat="server">
+                            </asp:ContentPlaceHolder>
+
+                            <hr/>
+                            <div class="small">Контакты для предложений и замечаний:<br/> <strong>alexzh@santur.ru<br/>(343)270-04-04 (доп. 5301)</strong></div>
+                            </div>
+                        </td>
+                        
+                        <td id="__content" style="padding:5px; width: auto;">
+                        <div class="contentpanel">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                        
+                        <td id="rightplace" runat="server" style="padding:5px; width: 25%;" Visible="false">
+                        <div class="contentpanel">
+                            <asp:ContentPlaceHolder ID="place_Right" runat="server">
+                            </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="footer">
+                        <td colspan="4">
+                            <div>
+                                <ul style="list-style-type: none; text-indent: 0px;">
+                                    <asp:Literal ID="divLastUpdate" runat="server"></asp:Literal>
+                                </ul>
+                                <asp:Repeater ID="rpLastupdate" runat="server">
+                                    <ItemTemplate>
+                                        <%# Eval("Name") %>:<%# Eval("Date") %></ItemTemplate>
+                                    <SeparatorTemplate>
+                                        &nbsp;&nbsp;&nbsp;</SeparatorTemplate>
+                                </asp:Repeater>
+                            </div>
+                            <hr />
+                            <div>Контакты для предложений и замечаний: alexzh@santur.ru (343)270-04-04 (доп. 5301 ) </div>
+                            <div>
+                                santur, 2014</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    </form>
+    </div>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            setInterval(checksysmsg, 5000);
+            
+            $(".message").each(function () {
+                if ($(this).text().trim() == '')
+                    $(this).hide();
+                else
+                    $(this).show();
+
+//                if ($('#qmsg').text().trim() == '')
+//                    $('#qmsg').hide();
+//                else {
+//                    $('#qmsg').show();
+//                    $('#qmsg').offset().top = 50;
+//                }
+            });
+
+            
+        });
+
+
+    
+    </script>
+</body>
+</html>

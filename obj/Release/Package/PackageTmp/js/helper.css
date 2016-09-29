@@ -1,0 +1,89 @@
+﻿
+da {
+    outline: none;
+    text-decoration: none;
+}
+   
+#help {
+    display: block;
+    font-size: 12px;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    left:24px;
+    width: 279px;
+    z-index: 5;
+    font-family: Tahoma,Arial,Helvetica,Verdana,sans-serif;
+}
+
+#help img{
+    border: 0px;
+}
+
+#help-panel {
+    background-color: #FFFFFF;
+    border: 1px solid #F15A2A;
+    display: none;
+    float: left;
+    width: 240px;
+}
+
+#help-panel .collapse {
+    display: none;
+    float: left;
+    padding: 15px 10px;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+#help-panel .collapse a {
+    font-size: 11px;
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+#support-header {
+    background: url("../simg/helper/24-7-bg.gif") repeat-x scroll 0 0 transparent;
+    height: 17px;
+    padding: 2px 0 0 10px;
+}
+
+#help-panel .main {
+    background: url("../simg/helper/item-bg.png") repeat-x scroll 0 0 transparent;
+    float: left;
+    height: 37px;
+    width: 240px;    
+}
+
+#help-panel a.title {
+    background: url("../simg/helper/but-right.gif") no-repeat scroll 10px 15px transparent;
+    color: #FFF;
+    display: block;
+    font-weight: bold;
+    padding: 12px 10px 12px 22px;
+    font-size: 12px;
+}
+
+#help-panel a.title span {
+    color: #666;
+    display: block;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#help-panel a.selected {
+    background: url("../simg/helper/but-down.gif") no-repeat scroll 10px 15px transparent;
+}
+
+#help a {
+    text-decoration: none !Important;
+}
+
+#help-button 
+{
+    position:fixed;
+    left:0;
+    top:50px;
+    float: left;
+}

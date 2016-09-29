@@ -1,0 +1,448 @@
+﻿body
+{
+    font-family: Verdana, Tahoma, Arial, MS Reference Sans Serif;
+    font-size: 9pt;
+}
+
+.mainbackcolor
+{
+    background-color:#7191A8;
+}
+.mainaccentcolor
+{
+    background-color:Orange;
+}
+
+table
+{
+    font-size: 9pt;
+}
+p
+{
+    margin: 2px 0px 4px 0px;
+}
+h1,h2,h3,h4,h5,h6
+{
+    font-family: Tahoma, Arial, Verdana;
+}
+h3, h4, h5
+{
+    padding: 6px 0 0 0;
+}
+td
+{
+    vertical-align:top;
+}
+.contentpanel
+{
+    background-color:#FDFDFD;
+    border:1px solid #DDDDDD;
+    padding:5px;
+}    
+#header
+{
+    background-color: #006699;
+    color: White;
+    padding: 5px;
+    height: 60px;
+}
+#footer
+{
+    background-color: Gray;
+    font-size: 7.5pt;
+    font-weight: bold;
+    text-align: center;
+    height: 30px;
+}
+#mainmenu a
+{
+    line-height:32px;
+    
+    padding:8px;
+    font-size: 110%;
+    
+    font-variant:small-caps;
+    color:#555555 ;
+    text-decoration:none !important;
+}
+
+.mainmenuselected
+{
+    background-color: #7191A8;
+    border-bottom: 5px solid #FFA500;
+    color:#FFFFFF !important;
+}
+
+
+tr.mypager
+{
+    font-family: Courier New;
+    font-size: 11pt;
+    font-weight: bold;
+}
+tr.mypager td
+{
+    vertical-align:middle;
+}
+tr.mypager span
+{
+    padding-left:5px;
+    padding-right:5px;
+    background-color: #EFEFFF;
+    color: #333333;
+}
+tr.mypager a
+{
+    padding-left:5px;
+    padding-right:5px;
+    border:1px solid #eeeeee;
+    color: #eeeeee;
+    text-decoration:none !important;
+}
+tr.mypager a:hover
+{
+    padding-left:5px;
+    padding-right:5px;
+    border:1px solid #ffffff;
+    color: #ffffff;
+    text-decoration:none !important;
+    box-shadow: 0px 0px 3px;
+}
+div.tabcontrol
+{
+    border-top:0px;
+    border-bottom:1px solid #333333;
+    border-left:1px solid #333333;
+    border-right:1px solid #333333;
+}
+
+#cloud a
+{
+    font-size: 7.5pt;
+    font-weight: bold;
+    font-family: Arial Narrow, Times New Roman;
+}
+#cloud a.link, #cloud a.visited
+{
+    color: Blue;
+}
+#cloud a.hover
+{
+    color: Lime;
+}
+.center
+{
+    text-align:center;
+}
+.grayfon
+{
+    background-color: #DDDDDD;
+}
+.whitefon
+{
+    background-color:White;
+}
+.white
+{
+    color: White;
+}
+.red
+{
+    color: Red;
+}
+.bold
+{
+    font-weight: bold;
+}
+.message
+{
+    border: 1px solid #FFCC66;
+    background-color: Yellow;
+    font-weight: bold;
+    color: Black;
+    padding: 5px;
+    margin: 0px;
+}
+
+.italic
+{
+    font-style: italic;
+}
+.normal
+{
+    font-style: normal;
+}
+.small
+{
+    font-size: 80%;
+}
+.normalsize
+{
+    font-size: 100%;
+}
+.bigsize
+{
+    font-size: 150%;
+}
+.gray
+{
+    color: Silver;
+}
+.black
+{
+    color: Black;
+}
+.left
+{
+    text-align:left;
+}
+.center
+{
+    text-align:center;
+}
+.right
+{
+    text-align:right;
+}
+.upper
+{
+    vertical-align: super;
+}
+
+.searchselected
+{
+    background-color:Yellow;
+}
+
+.border{
+border: 1px solid #555555;
+}
+
+.padding5
+{
+    padding:5px;
+}
+
+.padding2
+{
+    padding:2px;
+}
+
+table.grid
+{
+    border:2px solid #7191A8;
+    
+    
+}
+table.grid th, table.grid td
+{
+    border-bottom:1px solid #666666;
+    border-right:1px solid #666666;
+    margin:3px;
+    padding:3px;  
+    vertical-align:middle; 
+}
+
+table.gridlight
+{
+    border:1px solid #AAAAAA;
+    
+    
+}
+table.gridlight th, table.gridlight td
+{
+    border-bottom:1px solid #AAAAAA;
+    border-right:1px solid #AAAAAA;
+    
+    padding:2px;   
+}
+
+
+div.floatLeft
+{
+    float:left;
+    padding: 0;
+    margin: 0;
+}
+div.floatLeft-90
+{
+    width:89%;
+    float:left;
+    padding: 0;
+    margin: 0;
+}
+div.floatRight
+{
+    float:right;
+    padding: 0;
+    margin: 0;
+}
+div.floatRight-10
+{
+    width:9%;
+    float:right;
+    padding: 0;
+    margin: 0;
+}
+.clearBoth
+{
+    clear: both;
+    line-height: 1px;
+    padding: 0;
+    margin: 0;
+}
+.ipad
+{
+    border: 1px solid #336699;
+    margin: 6px;
+    padding: 6px;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    vertical-align:middle;
+}
+
+.incashdetail
+{
+    font-size:90%;
+    font-style:normal;
+    font-weight:bold;
+    color:Navy;
+}
+.incashdetail td
+{
+    text-align:center;
+    vertical-align:middle;
+}
+
+a.linkbutton
+{
+    margin: 1px;
+    padding: 2px 2px 2px 2px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+}
+a.linkbutton:link, a.linkbutton:visited
+{
+    border: 1px solid #333399;
+    background-color: #E9E9F3;
+    color: #333399;
+}
+a.linkbutton:hover
+{
+    border: 1px solid #FF9900;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+a.selected
+{
+    border: 1px solid #FF9900 !important;
+    cursor: pointer;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+a.button
+{
+    margin: 1px;
+    padding: 6px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+a.button:link, a.button:visited
+{
+    border: 1px solid #0058A9;
+    background-color: #E8F4FF;
+    color: #0058A9;
+}
+a.button:hover
+{
+    border: 1px solid #F15A2A;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+   
+    .button img
+    {
+        vertical-align:middle;
+        border:0;
+    }
+
+.shadow {
+    /*background: #fc0;  Цвет фона */
+    box-shadow: 2px 2px 2px rgba(0,0,0.3,0.5); /* Параметры тени */
+    padding: 5px;
+   }
+   
+   .shadowdirect
+   {
+       box-shadow: 0px 4px 6px -2px rgba(0,0,0.3,0.5); /* Параметры тени */
+    padding: 0px;
+   }
+
+
+table.profile
+{
+    border:1px solid #777777;
+    font-family: Verdana, Tahoma, Arial;
+    
+}
+
+table.profile tr, table.profile td
+{
+    /* background-color: #EBEBFF;*/
+}
+table.profile td
+{
+    margin: 0px;
+    padding:5px;
+}
+td.profile-head
+{
+    background-color: #0058A9;
+    font-weight: bold;
+    font-size: 120%;
+    color: #FFFFFF;
+    line-height:30px;
+    vertical-align:middle;
+}
+td.profile-field-title
+{
+    background-color: #EBEBEB;
+    width: 140px;
+    vertical-align: middle;
+    text-align: right;
+    
+}
+td.profile-field
+{
+    vertical-align: middle;
+    text-align: left;
+}
+td.profile-button
+{
+    background-color: #BCC7D8;
+    font-weight: bold;
+    font-size: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.profile-field input
+{
+    line-height:24px;    
+}
+td.profile-field select
+{
+    height:28px;    
+}
+

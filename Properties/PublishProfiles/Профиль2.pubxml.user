@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется в процессе публикации или упаковки вашего веб-проекта. Вы можете настроить поведение процесса,
+изменив этот файл MSBuild. Дополнительные сведения см. по адресу http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>
+    </TimeStampOfAssociatedLegacyPublishXmlFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="admin.aspx">
+      <publishTime>05/26/2014 11:24:50</publishTime>
+    </File>
+    <File Include="bin/ensoCore.dll">
+      <publishTime>04/11/2014 08:49:20</publishTime>
+    </File>
+    <File Include="bin/ensoCore.pdb">
+      <publishTime>04/11/2014 08:49:20</publishTime>
+    </File>
+    <File Include="bin/wstcp.dll">
+      <publishTime>05/26/2014 17:05:47</publishTime>
+    </File>
+    <File Include="bin/wstcp.pdb">
+      <publishTime>05/26/2014 17:05:47</publishTime>
+    </File>
+    <File Include="clock.gif">
+      <publishTime>03/03/2014 15:23:00</publishTime>
+    </File>
+    <File Include="custom.css">
+      <publishTime>04/22/2014 09:59:12</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>04/16/2014 11:50:58</publishTime>
+    </File>
+    <File Include="default.htm">
+      <publishTime>09/14/2012 11:00:58</publishTime>
+    </File>
+    <File Include="empty.htm">
+      <publishTime>04/17/2014 15:57:04</publishTime>
+    </File>
+    <File Include="ensoCom.js">
+      <publishTime>04/09/2014 10:07:17</publishTime>
+    </File>
+    <File Include="error.aspx">
+      <publishTime>09/14/2012 11:34:07</publishTime>
+    </File>
+    <File Include="gdetail.aspx">
+      <publishTime>04/15/2014 17:21:17</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/14/2012 09:28:37</publishTime>
+    </File>
+    <File Include="goodsx.asmx">
+      <publishTime>09/14/2012 15:49:52</publishTime>
+    </File>
+    <File Include="js/jquery-1.6.2.js">
+      <publishTime>12/14/2012 16:15:04</publishTime>
+    </File>
+    <File Include="mainpage.Master">
+      <publishTime>05/26/2014 16:36:28</publishTime>
+    </File>
+    <File Include="nsigoodies.aspx">
+      <publishTime>05/20/2014 14:46:54</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/26/2014 16:07:23</publishTime>
+    </File>
+    <File Include="Проверка на дубли.txt">
+      <publishTime>05/21/2014 16:30:02</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
