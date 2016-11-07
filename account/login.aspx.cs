@@ -51,7 +51,7 @@ namespace wstcp
                 }
                 else
                 {
-
+                    txEmail.Attributes.Add("onchange", "showSmsCode()");
                     show_login_form(true);
                     MultiView1.SetActiveView(vLinks);
                 }
@@ -97,13 +97,15 @@ namespace wstcp
             if (_iam != null && _iam.ID > 0)
             {
                 HttpCookie mc = new HttpCookie("usrcook", txEmail.Text.Trim() + "#" + txPwd.Text.Trim());
-                mc.Expires = DateTime.Now.AddDays(33);
+                if (_iam.PresentedSubject.UseSmsAuthorization)
+                    mc.Expires = DateTime.Now.AddHours(8);
+                else
+                    mc.Expires = DateTime.Now.AddDays(33);
                 Response.Cookies.Add(mc);
             }
 
             if (_iam != null && _iam.ID > 0)
             {
-
                 Server.Transfer((p_p.GetPreviousPage(_iam) == "") ? "../default.aspx" : p_p.GetPreviousPage(_iam), false);
             }
             else
@@ -114,7 +116,7 @@ namespace wstcp
 
         protected void linkRememberPsw_Click(object sender, EventArgs e)
         {
-            if (txEmail.Text.Trim().Length<7)
+            if (txEmail.Text.Trim().Length < 7)
             {
                 RequiredFieldValidator1.Visible = true;
                 return;
@@ -178,7 +180,7 @@ namespace wstcp
             }
 
 
-            if (txNewEmail.Text!="" && pUserInfo.Exist(txNewEmail.Text))
+            if (txNewEmail.Text != "" && pUserInfo.Exist(txNewEmail.Text))
             {
                 lbError.Text = "пользователь с таким email уже зарегистрирован на сайте";
                 return;
@@ -212,12 +214,12 @@ namespace wstcp
 
                 subj.EmailTAs = (fieldseller.Visible && txEmailTAs.Text != "") ? txEmailTAs.Text : own.DefaultTA;//SysSetting.GetValue("emaildefaultta");
                 Subject.Save(subj);
-                
+
             }
             if (iam.IsSaller)
-                {
-                    Bind.Save(iam.ThisObject, subj.ThisObject, iam);
-                }
+            {
+                Bind.Save(iam.ThisObject, subj.ThisObject, iam);
+            }
             bool res = false;
             if (!exists || (txNewName.Text.Trim() != "" && txNewEmail.Text.Trim() != ""))
             {
@@ -252,7 +254,8 @@ namespace wstcp
                             Server.Transfer((p_p.GetPreviousPage(_iam) == "") ? "../default.aspx" : p_p.GetPreviousPage(_iam), false);
                         }
 
-                    } else
+                    }
+                    else
                     {
                         lbSendMessage.Text = "<p>Данные отправлены администратору сайта.</p><p>В течение нескольких минут Вам будет выслано письмо с паролем для входа.</p>";
                     }
@@ -288,9 +291,10 @@ namespace wstcp
                     linkPrn.Text = "<a href='prnnew.aspx?id=" + usr.ID + "' target='_blank'>Распечатать</a>";
                     MultiView1.SetActiveView(vSendMessage);
                 }
-            } else
+            }
+            else
             {
-                
+
                 res = true;
             }
             if (iam.IsSaller)

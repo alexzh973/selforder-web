@@ -86,7 +86,7 @@ namespace wstcp
                 {
                     bufinvoice = (byte[])dt.Rows[0]["invoicesrc"];
                     context.Response.ContentType = webIO.GetFileContentType(".pdf");
-                    context.Response.AddHeader("Content-Disposition", "attachment;filename=СчетНаОплату" + dt.Rows[0]["code"] + "");
+                    context.Response.AddHeader("Content-Disposition", "attachment;filename=СчетНаОплату" + dt.Rows[0]["code"] + ".pdf");
                     context.Response.OutputStream.Write(bufinvoice, 0, bufinvoice.Length);
                     context.Response.End();
                 }

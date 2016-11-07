@@ -7,7 +7,8 @@
 @whitetext: #FFFFFF;
 @blacktext: #222222;
 @lightbordercolor: #DDDDDD;
-
+@activelink:#435eb7;
+@hoverlink:#0000ff;
 .roundborder4(@colorborder) {
     border: 1px solid @colorborder;
     border-radius: 4px 4px 4px 4px;
@@ -213,6 +214,15 @@ td {
 
 /*-----------------------------------------------------------------*/
 
+
+.link {
+cursor:pointer;
+color:@activelink;
+}
+    .link:hover {
+color:@hoverlink;    
+text-decoration:underline;
+    }
 
 img.img1616 {
     width: 16px;

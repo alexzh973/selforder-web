@@ -226,14 +226,16 @@
                                 <asp:TextBox ID="txEmail" runat="server" Width="100%"></asp:TextBox>
                             </td>
                         </tr>
-                    <tr>
-                        <td class="profile-field-title">
-                           Телефоны                          
-                        </td>
-                        <td class="profile-field">
-                            <asp:TextBox ID="txPhones" runat="server" MaxLength="250" Width="100%"></asp:TextBox>
-                        </td>
-                    </tr><tr>
+                        <tr>
+                            <td class="profile-field-title">
+                                Телефон
+                            </td>
+                            <td class="profile-field">
+                                <asp:TextBox ID="txPhones" runat="server" Width="100%"></asp:TextBox>
+                            </td>
+                        </tr>
+                    
+                        <tr>
                         <td class="profile-field-title">
                            Примечание                          
                         </td>
@@ -284,7 +286,7 @@
             </asp:FormView>
                 
                 
-            </div>
+           
             
         </asp:View>
     </asp:MultiView>

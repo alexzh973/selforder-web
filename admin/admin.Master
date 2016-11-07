@@ -19,10 +19,12 @@
     		<!--[if lt IE 9]>
 			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+    <link href="../js/chosen.css" rel="stylesheet" type="text/css" />
+     <script src="../js/chosen.jquery.min.js"></script>
     <link href="../custom.css" rel="stylesheet" />
     <script type="text/javascript">
         var sid = '<%= Session.SessionID %>';
-     </script>
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -62,5 +64,11 @@
     </div>
 
     </form>
+    <script type="text/javascript">
+        $(function () {
+            $('select').chosen({ no_results_text: 'Нет результатов по' });
+
+        });
+    </script>
 </body>
 </html>

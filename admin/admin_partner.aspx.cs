@@ -299,6 +299,9 @@ namespace wstcp
             txEmailTAs.Text = RECORD.EmailTAs;
             txCode.Text = RECORD.Code;
             txCodeAgr.Text = RECORD.CodeDG;
+            chUseSmsAuthorization.Checked = RECORD.UseSmsAuthorization;
+
+
             webInfo.LoadOwners(dlOwner,""+RECORD.OwnerID,false,iam);
 
             dlPriceType.ClearSelection();
@@ -329,6 +332,7 @@ namespace wstcp
                 txEmailPers.Text =
                 txNamePers.Text =
                 txPassPers.Text = "";
+                txPhone.Text = "";
             }
         }
 
@@ -339,6 +343,7 @@ namespace wstcp
             txEmailPers.Text = pers.Email;
             txNamePers.Text = pers.Name;
             txPassPers.Text = pers.Psw;
+            txPhone.Text = pers.Phones;
             chLoginEnable.Checked = pers.LoginEnabled;
         }
 
@@ -361,6 +366,7 @@ namespace wstcp
             RECORD.ParentID = cNum.cToInt(dlParent.SelectedValue);
             RECORD.CodeDG = txCodeAgr.Text;
             RECORD.PriceType = dlPriceType.SelectedValue;
+            RECORD.UseSmsAuthorization = chUseSmsAuthorization.Checked;
             RECORD.OwnerID = cNum.cToInt(dlOwner.SelectedValue);
             result = Subject.Save(RECORD);
 
@@ -379,6 +385,7 @@ namespace wstcp
                         pers.SubjectID = RECORD.ID;
                         pers.ParentID = 100005;
                         pers.LoginEnabled = chLoginEnable.Checked;
+                        pers.Phones = txPhone.Text;
                         pers.IsFolder = false;
                         
                         pUser.Save(pers);

@@ -28,8 +28,9 @@ namespace wstcp.order
                 Response.End();
                 return;
             }
-            ((mainpage) this.Master).VisibleLeftPanel = false;
-            ((mainpage)this.Master).VisibleRightPanel = false;
+            ((mainpage)Master).SelectedMenu = "order";
+            ((mainpage)Master).VisibleLeftPanel = false;
+            ((mainpage)Master).VisibleRightPanel = false;
             if (!IsPostBack)
             {
                 eID = cNum.cToInt(Request["id"]);
@@ -69,7 +70,6 @@ namespace wstcp.order
 
         private void show_record()
         {
-
 
             ViewArticle.AddView(iam, RECORD.ThisObject);
             string script = "";

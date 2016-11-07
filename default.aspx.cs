@@ -16,10 +16,8 @@ namespace wstcp
             lbMess.Text = "";
             if (!IsPostBack)
             {
-                //if (UserFilter.Load(iam.ID, "defaultpage") == "old")
-                //{
-                //    Response.Redirect("defaultold.aspx");
-                //}
+               
+                
                 ((mainpage)Master).VisibleLeftPanel = false;
                 ((mainpage)Master).VisibleRightPanel = false;
 
@@ -38,12 +36,6 @@ namespace wstcp
                     {
                         pnlSubjectFilter.Visible = false;
                     }
-                    //TabCtrl.Tabs.Add(new TabItem("В процессе обработки в Сантехкомплекте ", "В процессе обработки в Сантехкомплекте", "Заявки, требующие обработки в Сантехкомплекте", "", "<i class='glyphicon glyphicon-time'></i>"));
-                    //TabCtrl.Tabs.Add(new TabItem("Ожидание решения клиента", "Ожидание решения клиента", "Заявки, требующие подтверждения со стороны клиента", "", ""));
-                    //TabCtrl.Tabs.Add(new TabItem("На комплектации и готовые к отгрузке", "На комплектации и готовые к отгрузке", "Заявки, готовые частично или полностью к отгрузке", "", ""));
-                    //TabCtrl.Tabs.Add(new TabItem("Отмененные (отложенные)", "Отмененные (отложенные)", "Заявки, отмененные или отложенные", "", ""));
-                    //TabCtrl.Tabs.Add(new TabItem("Выполненные", "Выполненные", "Заявки выполненные", "", ""));
-
 
 
                     if (iam.PresentedSubjectID > 100000)
@@ -72,6 +64,7 @@ namespace wstcp
                 else
                 {
                     MultiView1.SetActiveView(vLogin);
+                    txLogin.Attributes.Add("onchange", "showSmsCode()");
                 }
             }
             else if (hdRefresh.Value == "Y" || !IsPostBack)
@@ -99,7 +92,7 @@ namespace wstcp
                     show_orders("'M','E','R'"); // на комплектации, готовые к выдаче
                     break;
                 case 3:
-                    
+
                     break;
                 case 4:
                     show_orders("'X','D'"); // отмененные
@@ -161,7 +154,7 @@ namespace wstcp
 
         private void show_nearestTeo()
         {
-            DataTable dt = db.GetDbTable("select * from ord where isnull(Teotrans,'')<>'' and State not in ('F','D') and subjectId=" + iam.PresentedSubjectID + " and TeoDate>=" + cDate.Date2Sql(cDate.TodayD.AddDays(-10)));
+            DataTable dt = db.GetDbTable("select * from ord where isnull(Teotrans,'')<>'' and State not in ('F','D') and TEOState in ('P','A') and subjectId=" + iam.PresentedSubjectID + " and TeoDate>=" + cDate.Date2Sql(cDate.TodayD.AddDays(-3)));
             rpTeo.DataSource = dt;
             rpTeo.DataBind();
 
@@ -224,13 +217,13 @@ namespace wstcp
             string selectTab = "" + Session["taborders"];
 
             settabs(selectTab);
-            
+
 
             MultiView1.SetActiveView(vOrders);
             int subjId = iam.PresentedSubjectID;
             int q = 0;
 
-            q = get_qty_orders( txSearch.Text, "'','N','Z','A'");
+            q = get_qty_orders(txSearch.Text, "'','N','Z','A'");
             qZ.Visible = (q > 0);
             qZ.Text = q.ToString();
 
@@ -259,11 +252,11 @@ namespace wstcp
                     break;
                 case "D":
                     mvOrders.SetActiveView(vD);
-                    
+
                     break;
                 case "F":
                     mvOrders.SetActiveView(vF);
-                    
+
                     ucOrdersTable_D.Visible = true;
                     q = ucOrdersTable_D.Show_orders(subjId, "D", "'D','X'", false, true, txSearch.Text);
                     ucOrdersTable_F.Visible = true;
@@ -280,21 +273,21 @@ namespace wstcp
 
         }
 
-        DataTable _dtcountords ;
+        DataTable _dtcountords;
 
         protected int get_qty_orders(string where, string listStates)
         {
             if (_dtcountords == null)
             {
-            string flt = (where.Length > 4) ? "%" + where.Replace("  ", " ").Replace(" ", "%") + "%" : where.Replace("  ", " ").Replace(" ", "%") + "%";
-                string w = (flt.Length>16)?" and (ord.id in (select orderid from ORDI where goodCode like '" + where + "' or Name like '" + flt + "' " + ((where.Length < 4) ? " or Name like '% " + where + "%'" : "") + " ) or (''+ord.id) like '%" + where + "%' or ord.name like '%" + where + "%' or ord.Code like '%" + where + "%')":"";
-            _dtcountords = db.GetDbTable("select state, count(id) as qty from ORD where isnull(TypeOrd,'')<>'Q' and subjectID=" + iam.PresentedSubjectID + ((w.Length > 1) ? w : "")+" group by state");
-                
+                string flt = (where.Length > 4) ? "%" + where.Replace("  ", " ").Replace(" ", "%") + "%" : where.Replace("  ", " ").Replace(" ", "%") + "%";
+                string w = (flt.Length > 16) ? " and (ord.id in (select orderid from ORDI where goodCode like '" + where + "' or Name like '" + flt + "' " + ((where.Length < 4) ? " or Name like '% " + where + "%'" : "") + " ) or (''+ord.id) like '%" + where + "%' or ord.name like '%" + where + "%' or ord.Code like '%" + where + "%')" : "";
+                _dtcountords = db.GetDbTable("select state, count(id) as qty from ORD where isnull(TypeOrd,'')<>'Q' and subjectID=" + iam.PresentedSubjectID + ((w.Length > 1) ? w : "") + " group by state");
+
             }
-            int q= cNum.cToInt(_dtcountords.Compute("sum(qty)","state in (" + listStates + ")"));
+            int q = cNum.cToInt(_dtcountords.Compute("sum(qty)", "state in (" + listStates + ")"));
             return q;
         }
-        
+
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -340,7 +333,8 @@ namespace wstcp
             iam.PresentedSubjectID = (iam.SubjectID == 0) ? cNum.cToInt(dlSubjects.SelectedValue) : iam.SubjectID;
             if (iam.CurOrder != null && iam.CurOrder.SubjectID != iam.PresentedSubjectID)
                 iam.CurOrder = null;
-            ((mainpage)this.Master).show_personalTAs(new Subject(iam.PresentedSubjectID, iam));
+            ((mainpage)Master).ReloadUserString();
+            ((mainpage)Master).show_personalTAs(new Subject(iam.PresentedSubjectID, iam));
 
             show_nearestTeo();
 
@@ -442,16 +436,16 @@ namespace wstcp
                     Session["taborders"] = "U";
                     tab1.Attributes.Add("class", "active");
                     break;
-                
+
 
                 case "R":
                     Session["taborders"] = "R";
                     tab2.Attributes.Add("class", "active");
                     break;
-                case "D": 
+                case "D":
                 //Session["taborders"] = "D";
-                    //tab3.Attributes.Add("class", "active");
-                    //break;
+                //tab3.Attributes.Add("class", "active");
+                //break;
                 case "F":
                     Session["taborders"] = "F";
                     tab4.Attributes.Add("class", "active");
@@ -598,7 +592,7 @@ namespace wstcp
         }
         private string get_qbuttons(string orderId, string s)
         {
-            
+
             string btnDel = "&nbsp;" + setbtns(orderId, "sns", "X", "delete.png", "отменить/в архив");
             string btnCopy = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=copy\" class='microbutton micro' title='Скопировать/повторить ' ><img src='../simg/16/page_copy.png' /></a>";
             string btnEdit = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=edit\" class='microbutton micro' title='Изменить' ><img src='../simg/16/document-edit.png' /></a>";
@@ -623,16 +617,16 @@ namespace wstcp
 
         protected void btnToOldStyle_Click(object sender, EventArgs e)
         {
-            UserFilter.Save(iam.ID,"defaultpage","old");
+            UserFilter.Save(iam.ID, "defaultpage", "old");
             Response.Redirect("defaultold.aspx");
         }
 
         protected void lbtnRemember_Click(object sender, EventArgs e)
         {
-            if (!cStr.ValidEmail(txLogin.Text) )
+            if (!cStr.ValidEmail(txLogin.Text))
             {
                 lbMessageLogin.Text = "Вы не указали свой e-mail (либо указали не корректно), а он необходим, чтобы на него был выслан забытый пароль";
-            } 
+            }
             else
             {
                 DataRow rr = db.GetDbRow("select convert(nvarchar,pass) as pass from " + pUser.TDB + " where email='" + txLogin.Text.Trim() + "'");
@@ -641,11 +635,12 @@ namespace wstcp
                     EmailMessage email = new EmailMessage(CurrentCfg.EmailSupport, txLogin.Text.Trim(), "Портал: информация о забытом пароле", "Ваш пароль: " + rr["pass"]);
                     email.Send();
                     lbMessageLogin.Text = "Забытый пароль выслан на почту " + txLogin.Text.Trim();
-                } else
+                }
+                else
                 {
                     lbMessageLogin.Text = "E-mail " + txLogin.Text.Trim() + " не найден среди пользователей сайта. Либо указан не корректно, либо Вы можете пройти короткую процедуру регистрации.";
                 }
-                
+
             }
         }
 

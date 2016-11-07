@@ -31,22 +31,13 @@ namespace wstcp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lbSubject элемент управления.
+        /// LoginStringInHeader элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lbSubject;
-        
-        /// <summary>
-        /// lbCurrBlnc элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lbCurrBlnc;
+        protected global::wstcp.LoginStringInHeader LoginStringInHeader;
         
         /// <summary>
         /// rpTAs элемент управления.

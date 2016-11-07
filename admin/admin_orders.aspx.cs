@@ -28,7 +28,7 @@ namespace wstcp
         private void load_tas()
         {
             dlTa.Items.Clear();
-            dlTa.Items.Add(new ListItem("",""));
+            dlTa.Items.Add(new ListItem("----------",""));
             foreach(DataRow r in db.GetDbTable("select count(ord.id) as qty,subj.EmailTAs,(select top 1 name from ENSOUSER where subj.EmailTAs like '%'+email+'%') as ta from ORD inner join subj on ord.SubjectID=subj.ID group by subj.EmailTAs").Select("","ta"))
             {
                 dlTa.Items.Add(new ListItem("" + r["ta"]+" ("+r["qty"]+")", "" + r["EmailTAs"]));  
@@ -38,7 +38,7 @@ namespace wstcp
         private void load_subjects()
         {
             dlSubject.Items.Clear();
-            dlSubject.Items.Add(new ListItem("", ""));
+            dlSubject.Items.Add(new ListItem("------- ", ""));
             foreach (DataRow r in db.GetDbTable("select count(ord.id) as qty,subj.id,subj.name from ORD inner join subj on ord.SubjectID=subj.ID group by subj.id,subj.Name").Select("", "name"))
             {
                 dlSubject.Items.Add(new ListItem("" + r["name"] + " (" + r["qty"] + ")", "" + r["id"]));

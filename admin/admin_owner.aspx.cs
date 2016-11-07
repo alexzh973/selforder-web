@@ -85,6 +85,7 @@ namespace wstcp
             chAutoActivate.Checked = rec.AutoActivatedUser;
             chShowIncash.Checked = rec.ShowIncash;
             chShowInvDiscount.Checked = rec.ShowInvDiscount;
+            chUseSmsAuthorization.Checked = rec.UseSmsAuthorization;
         }
 
 
@@ -116,7 +117,7 @@ namespace wstcp
             rec.InvoiceHead = txInvoiceHead.Text;
             rec.InvoiceFoot = txInvoiceFoot.Text;
             rec.InvoiceRekv = txInvoiceRekv.Text;
-
+            rec.UseSmsAuthorization = chUseSmsAuthorization.Checked;
 
             if (Owner.Save(rec, iam.Email) != db.DbResult.OK)
             {

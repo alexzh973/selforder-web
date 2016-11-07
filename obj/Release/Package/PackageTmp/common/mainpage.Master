@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mainpage.master.cs" Inherits="wstcp.mainpage" %>
 
+<%@ Register src="../account/LoginStringInHeader.ascx" tagname="LoginStringInHeader" tagprefix="uc1" %>
+
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="ru"><![endif]-->
@@ -67,22 +69,22 @@
     -moz-border-radius: 4px 4px 4px 4px;
 
         }
-        /*.cartbut table {
-            margin:0 !important;
-            border:0;
-        }
-        .cartbut table td {
-            padding:0px;
-            margin: 0px;
-            
-        }*/
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
         
     </asp:ContentPlaceHolder>
-
+    <script type="text/javascript">
+        function escWait(e) {
+            if (e.keyCode == 27 && $('#blumdiv')) {
+                $('#blumdiv').remove();
+                $('#waitclock').hide();
+                return;
+            }
+        }
+    </script>
 </head>
-<body style="padding: 0 0 20px 0; margin: 0;">
+<body style="padding: 0 0 20px 0; margin: 0;"  onkeydown="escWait(event);">
     <img src="../clock.gif" id="waitclock" />
     <span id="coord"></span>
     <div id="qmsg"></div>
@@ -103,31 +105,10 @@
 
                 </div>
                 <div class="g-row">
-                    <%--<div class="g-3"><a class="bold small" href="http://www.santur.ru" target="_blank">перейти на сайт www.SANTUR.ru</a></div>--%>
+                    
                     <div class="g-12">
                         <div class="right small grayfon">
-                            
-                            <span class="grayfon">пользователь: 
-                            
-                                <a class="bold" href="javascript: return 0;" onclick="openflywin('../account/card.aspx?id=<%= iam.ID %>', 600, 600, '<%#Eval("Name") %>')"><%= iam.Name %></a>
-
-                            </span>
-                            <%
-                                if (iam.ID >= 100000 && iam.PresentedSubjectID > 0)
-                                { %><a href="../account/prnnew.aspx?id=<%= iam.ID %>" target="_blank"><img width="12px" src="../simg/16/printer.png" /></a>
-                            &nbsp;<span class="grayfon"><asp:Literal ID="lbSubject" runat="server"></asp:Literal></span>
-                            &nbsp;<span class="grayfon" title="Текущий баланс по взаиморасчетам"><asp:Literal ID="lbCurrBlnc" runat="server"></asp:Literal></span>
-                            <% } %>
-
-                            <%
-                                if (iam.ID >= 100000)
-                                {
-                            %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=" padding2" style="color: #ED7A44; width: 80px; padding-left: 8px !important; padding-right: 8px !important;" href="../account/login.aspx?act=exit">выход </a><%
-                                } else
-                                {
-                                                                                                                                                                                                                                   %><a href="../account/login.aspx">авторизация</a> | <a href="../account/login.aspx?act=new">не зарегистрированы?</a><%
-                                }
-                                                                                                                                                                                                                                                                                                                                                       %>
+                            <uc1:LoginStringInHeader ID="LoginStringInHeader1" runat="server" />
                         </div>
                        
                     </div>
@@ -234,7 +215,7 @@
                                 &nbsp;&nbsp;&nbsp;
                             </SeparatorTemplate>
                         </asp:Repeater>
-                        <div>
+                        <div >
                             santur, 2016 
                         </div>
                         <div id='infoimport1'></div>
@@ -244,106 +225,105 @@
             </div>
 
 <script type="text/javascript">
-        var sid = '<%= Session.SessionID %>';
-        $(document).ready(function () { setInterval(checksysmsg, 5000); });
+    var sid = '<%= Session.SessionID %>';
+    $(document).ready(function () { setInterval(checksysmsg, 5000); });
 
-        function checksysmsg() {
-            if ($('#qmsg')) {
-                $.ajax({
-                    url: '../msg.ashx?act=sysmsg&sid=' + sid,
-                    success: function (data) {
-                        $('#qmsg').text(data);
-                        if ($('#qmsg').text().trim() == '') {
-                            $('#qmsg').hide();
-                        }
-                        else {
-                            $('#qmsg').css("top", "" + ($('#coord').offset().top + 50) + "px");
-                            $('#qmsg').show();
-                        }
+    function checksysmsg() {
+        if ($('#qmsg')) {
+            $.ajax({
+                url: '../msg.ashx?act=sysmsg&sid=' + sid,
+                success: function (data) {
+                    $('#qmsg').text(data);
+                    if ($('#qmsg').text().trim() == '') {
+                        $('#qmsg').hide();
                     }
-                });
-            }
+                    else {
+                        $('#qmsg').css("top", "" + ($('#coord').offset().top + 50) + "px");
+                        $('#qmsg').show();
+                    }
+                }
+            });
         }
+    }
 
    
-        $(document).ready(function () {
-            $(".message").hide();
-            $(".message").each(function () { if ($(this).text().trim() != '') $(this).show(); });
+    $(document).ready(function () {
+        $(".message").hide();
+        $(".message").each(function () { if ($(this).text().trim() != '') $(this).show(); });
 
 
-            $("a").draggable({
-                cursor: 'move',
-                containment: '.g'
+        //$("a").draggable({
+        //    cursor: 'move',
+        //    containment: '.g'
 
-            });
-            $("h").draggable({
-                cursor: 'move',
-                containment: '.g'
+        //});
+        //$("h").draggable({
+        //    cursor: 'move',
+        //    containment: '.g'
 
-            });
-            $("span").draggable({
-                cursor: 'move',
-                containment: '.g'
+        //});
+        //$("span").draggable({
+        //    cursor: 'move',
+        //    containment: '.g'
 
-            });
-            $("p").draggable({
-                cursor: 'move',
-                containment: '.g'
+        //});
+        //$("p").draggable({
+        //    cursor: 'move',
+        //    containment: '.g'
 
-            });
-            $("div").draggable({
-                cursor: 'move',
-                containment: '.g'
+        //});
+        //$("div").draggable({
+        //    cursor: 'move',
+        //    containment: '.g'
 
-            });
+        //});
 
-        });
+    });
     
-        <% 
+    <% 
         // iam = IamServices.GetIam(Session.SessionID);
         if (iam.IsSuperAdmin && 1==0)
            { %>
-        $(document).ready(function () { setInterval(check_import, 1000); });
+    $(document).ready(function () { setInterval(check_import, 1000); });
 
-        function check_import() {
-            if ($("#infoimport1")) {
-                $.ajax({
-                    url: '../import.ashx?act=in',
-                    success: function (data) { $('#infoimport1').text(data); }
-                });
-            }
-            if ($("#infoimport2")) {
-                $.ajax({
-                    url: '../import.ashx?act=fi',
-                    success: function (data) { $('#infoimport2').text(data); }
-                });
-            }
+    function check_import() {
+        if ($("#infoimport1")) {
+            $.ajax({
+                url: '../import.ashx?act=in',
+                success: function (data) { $('#infoimport1').text(data); }
+            });
         }
-        <% }%>
-        function showwait() {
-
-
+        if ($("#infoimport2")) {
+            $.ajax({
+                url: '../import.ashx?act=fi',
+                success: function (data) { $('#infoimport2').text(data); }
+            });
         }
+    }
+    <% }%>
+    function showwait() {
+
+
+    }
     
-        $(function () {
-            $(".slowfunc").click(function (e) {
-                showwaitclock(e);
-            });
-            $(".slowfunc").bind("onselect", function (e) {
-                showwaitclock(e);
-            });
+    $(function () {
+        $(".slowfunc").click(function (e) {
+            showwaitclock(e);
         });
-        function showwaitclock(e) {
+        $(".slowfunc").bind("onselect", function (e) {
+            showwaitclock(e);
+        });
+    });
+    function showwaitclock(e) {
             
-            var h = $(window).height() -20;
-                $('body').append("<div id='blumdiv' class='blum' style='line-height:" + h + "px'>&nbsp;</div>");
-                $('#waitclock').css("left", e.pageX - 20);
-                $('#waitclock').css("top", e.pageY-20);
+        var h = $(window).height() -20;
+        $('body').append("<div id='blumdiv' onkeydown=\"javascript:alert('прив');return false;\"  class='blum' style='line-height:" + h + "px'>&nbsp;</div>");
+        $('#waitclock').css("left", e.pageX - 20);
+        $('#waitclock').css("top", e.pageY-20);
                 
-                $('#waitclock').show();
-
-        }
-    </script>
+        $('#waitclock').show();
+    }
+</script>
     
     <asp:ContentPlaceHolder ID="placeScripts" runat="server" ></asp:ContentPlaceHolder>
         </form>

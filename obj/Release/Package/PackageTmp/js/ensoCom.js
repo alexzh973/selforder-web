@@ -3,8 +3,16 @@ var zamcol = '';
 var curentRowId = 0;
 
 $(document).ready(function () {
-    $("a[href='#']").attr("href","javascript:return 0;");
+    $("a[href='#']").attr("href", "javascript:return 0;");
+    
 });
+
+function maybeEsc(keycode) {
+    alert(keyCode);
+    //if (keyCode==13) {
+    //    $("#blumdiv").hide();
+    //}
+}
 
 function thisRow(selectedRowId) {
     thisrow(selectedRowId);

@@ -151,6 +151,14 @@ td {
   color: #222222;
 }
 /*-----------------------------------------------------------------*/
+.link {
+  cursor: pointer;
+  color: #435eb7;
+}
+.link:hover {
+  color: #0000ff;
+  text-decoration: underline;
+}
 img.img1616 {
   width: 16px;
   height: 16px;

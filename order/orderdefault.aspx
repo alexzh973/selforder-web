@@ -198,7 +198,7 @@
                                 value='' />
                             </div>
                         </asp:PlaceHolder>
-                        <div style="overflow: auto; height: 500px">
+                        <div style="overflow: auto; height: 500px" id="divPlaceStruct">
                             <asp:Literal ID="struct_place" runat="server"></asp:Literal>
                         </div>
                     </asp:Panel>
@@ -309,7 +309,48 @@
             </td>
         </tr>
     </table>
+    
+<script type="text/javascript">
+    
+    
+
+    function getListTN() {
+        var jl;
+        $.ajax({
+            url: '../good/ajaxg.ashx?sid=' + sid + '&act=getlisttn',
+            success: function (data) {
+                jl = JSON.parse(data);
+                showCats(jl ); 
+            }
+        });
+        
+    }
+    
+    function showCats(listTn) {
+        var str = "";
+        listTn.forEach(function (tn) {
+            str += "<div class='blocktn'>" +
+                "<a href='orderdefault.aspx?tn=" + tn.ID + "' class='tnlink' title='Можно выбрать всё направление'  >" + tn.Title + "</a>";
+            str += "<div class='blocktk' id='tkdiv" + tn.ID + "' ><div class='floatLeft-90'><ul>";
+            var listTk = tn.Childs;
+            listTk.forEach(function (tk) {
+                str += "<li><a id='tk" + tk.ID + "' onclick=\"tkInStack(this.id,'" + tk.Title + "')\" data='" + tk.Title + "' href='orderdefault.aspx?tk=" + tk.ID + "' class='tklink' >" + tk.Title + "</a></li>";
+                });
+                str += "</ul></div><div class='floatRight-10'></div><div class='clearBoth'></div></div>";
+                str += "</div>";
+            }
+        );
+
+        
+        $("#divPlaceStruct").html(str);
+    }
+    function getstringtk_s(id, title) {
+        return "<input value=\"бойлеры\" name=\"ch_tks\" id=\"ch_tks_5\" onclick=\"tkInStack(this.id,'бойлеры')\" type=\"checkbox\"><label for=\"ch_tks_5\" class=\"uncheck\">Бойлеры</label>";
+    }
+    $(document).ready(function () {
+       // getListTN();
+    });
 
 
-
+</script>
 </asp:Content>

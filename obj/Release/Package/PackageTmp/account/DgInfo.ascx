@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DgInfo.ascx.cs" Inherits="wstcp.account.DgInfo" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DgInfo.ascx.cs" Inherits="wstcp.DgInfo" %>
 <script type="text/javascript"></script>
 <div>
     Текущее состояние по взаиморасчетам <a class="micro" title="подробно..." onclick="javascript:$('#dginfo').show('fast');" href="#"><asp:Literal ID="lbAvail" runat="server"></asp:Literal></a>

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
+using selforderlib;
 
 namespace wstcp
 {
@@ -18,6 +20,40 @@ namespace wstcp
             string resp = "";
             context.Response.ContentType = "text/plain";
             string act = context.Request["act"];
+string sid = context.Request["sid"];
+            IAM iam = IamServices.GetIam(sid);
+            string regwhere = "";
+            switch (act)
+            {
+                case "getlisttn":
+                    switch (iam.CF_SourceNomen)
+            {
+                case "spec":
+                    regwhere = " good.id in (select goodid from OWNG where OwnerID=" + iam.OwnerID + " and zn_z='NL')";
+                    break;
+                case "my":
+                    regwhere = " good.id in (select goodid from ORDI where orderid in (select id from ORD where subjectid=" + iam.PresentedSubjectID + " and state<>'D'))";
+                    break;
+                case "all":
+                default:
+                    regwhere = " good.id in (select goodid from OWNG where OwnerID=" + iam.OwnerID + ")";
+                    break;
+            }
+            List<xTN> listTN = xTN_db.GetList(regwhere);
+                    foreach (xTN tn in listTN)
+                    {
+                        List<xTK> ch = xTK_db.GetList(tn.Title);
+                        tn.Childs = ch;
+                    }
+                    resp = JsonConvert.SerializeObject(listTN);
+                    break;
+                case "getlisttk":
+                    
+                    break;
+                default:
+                    break;
+
+            }
             //switch (act)
             //{
 

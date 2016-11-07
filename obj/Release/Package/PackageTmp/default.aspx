@@ -15,7 +15,7 @@
     <div class="message">
         <asp:Literal ID="lbMess" runat="server"></asp:Literal>
     </div>
-<asp:LinkButton ID="btnToOldStyle" runat="server" OnClick="btnToOldStyle_Click">старый стиль главной страницы</asp:LinkButton>
+<asp:LinkButton ID="btnToOldStyle" runat="server" OnClick="btnToOldStyle_Click" Visible="false">старый стиль главной страницы</asp:LinkButton>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="vLogin" runat="server">
             <div class="center white bluefon padding5">
@@ -40,38 +40,62 @@
 
             </div>
             <br />
+            <script type="text/javascript">
+                
+                $(document).ready(function () {
+                    $('#divsmscode').hide();
+                });
 
-            <div class="padding5 orangefon white">
-                <div class="message">
+                
+                function showSmsCode() {
+                    $.ajax({
+                        url: '../subj.ashx?sid=' + sid + '&act=trygetsms&e=' + $('#txLogin').val(),
+                        success: function (data) {
+                            if (data == 'Y') {
+                                alert('Вам выслана смс с паролем доступа');
+                                $('#divsmscode').show();
+                                //$('#smscodeneed').val('Y');
+                            }
+                        }
+                    });
+                }
+            </script>
+                    <div class="padding5 orangefon white">
+                    <div class="message">
                     <asp:Literal ID="lbMessageLogin" runat="server"></asp:Literal>
-                </div>
-                У МЕНЯ ЕСТЬ ДОСТУП
-                <div class="f-row">
+                    </div>
+                    <span>У МЕНЯ ЕСТЬ ДОСТУП</span>
+                    <div class="f-row">
                     <label>логин (e-mail)</label>
                     <div class="f-input">
-                        <asp:TextBox ID="txLogin" runat="server" MaxLength="150" CssClass="g-3"></asp:TextBox>
+                    <asp:TextBox ID="txLogin" runat="server" MaxLength="150" CssClass="g-3" ClientIDMode="Static"></asp:TextBox>
                     </div>
+                        <div id="divsmscode">
+                           
+                            <span>для доступа используйте пожалуйста пароль переданный Вам СМС-сообщением</span>
+                           <a href="#" onclick="showSmsCode()">повторить отправку пароля</a>
+                            </div>
                     <!-- f-input -->
-                </div>
-                <!-- f-row -->
-                <div class="f-row">
+                    </div>
+                    <!-- f-row -->
+                    <div class="f-row">
                     <label>пароль</label>
                     <div class="f-input">
-                        <asp:TextBox ID="txPwd" runat="server" TextMode="Password" MaxLength="150" CssClass="g-3"></asp:TextBox>
+                    <asp:TextBox ID="txPwd" runat="server" TextMode="Password" MaxLength="150" CssClass="g-3"></asp:TextBox> <asp:LinkButton ID="lbtnRemember" runat="server" OnPreRender="lbtnRemember_PreRender" CssClass="white" OnClick="lbtnRemember_Click">напомнить пароль...</asp:LinkButton>
                     </div>
-                </div>
-                <div class="f-row ">
+                    </div>
+                    <div class="f-row ">
                     <label></label>
                     <asp:Button ID="btnLogin" runat="server" Text="вход" OnClick="btnLogin_Click" Width="75px" />
-                    <asp:LinkButton ID="lbtnRemember" runat="server" OnPreRender="lbtnRemember_PreRender" CssClass="white">забыли пароль?</asp:LinkButton>
-                </div>
+                    
+                    </div>
 
 
 
-            </div>
-            <br />
-            <br />
-            <asp:Panel ID="pnlScreens" runat="server">
+                    </div>
+                    <br />
+                    <br />
+                    <asp:Panel ID="pnlScreens" runat="server">
 
 
 
@@ -95,8 +119,8 @@
                     <img class="pic-" src='../media/screens/s6.jpg' alt='s6' title="После этого наш менеджер свяжется с Вами для выставления счета на оплату"><br />
                 </div>
             </asp:Panel>
-        </asp:View>
-        <asp:View ID="vOrders" runat="server">
+                    </asp:View>
+                <asp:View ID="vOrders" runat="server">
             <asp:Panel ID="pnlSubjectFilter" runat="server">
                 
                 <br/>
@@ -121,7 +145,7 @@
                 <ItemTemplate>
                     <div class="shadow floatLeft border padding5 " style="width: 400px; margin: 4px;">
                         <span class="bluefon white small bold padding2 "><%#Eval("reg_date") %></span>&nbsp;
-                    <span class="bold"><a href="javascript:return 0" class="italic small" onclick="openflywin('../news/preview.aspx?id=<%#Eval("ID") %>',600,700,'<%#Eval("Name") %>')"><%#Eval("Name") %></a></span>
+                    <span class="bold"><a href="javascript:return 0" class="italic small" onclick="o            penflywin('../news/preview.aspx?id=<%#Eval("ID") %>',600,700,'<%#Eval("Name") %>')"><%#Eval("Name") %></a></span>
                         <p>
                             <%#Eval("Descr") %>
                             <a href="javascript:return 0" class="italic small" onclick="openflywin('../news/preview.aspx?id=<%#Eval("ID") %>',600,700,'<%#Eval("Name") %>')">подробнее...</a>
@@ -142,6 +166,7 @@
                         else { $("img[src*='time']").css("vertical-align", "top"); }
                     }
 
+                
                 </script>
                 <div class=" right">
                     <asp:LinkButton ID="lbtnCloseWin" runat="server" OnClick="lbtnCloseWin_Click">[X]</asp:LinkButton>

@@ -133,7 +133,7 @@ namespace wstcp
         public static string Import_ost(int ownerId, string filepath, bool correct_info = false)
         {
             if (Global.NEEDSTOPIMPORT) return "";
-            if (db.GetDbTable("select goodcode from imp_" + ownerId + " where CONVERT(varchar,lastupd,104)=CONVERT(varchar,getdate(),104)").Rows.Count > 100)
+            if (db.GetDbTable("select goodcode from imp_" + ownerId + " where CONVERT(varchar,lcd,104)=CONVERT(varchar,getdate(),104)").Rows.Count > 100)
                 return "";
             db.ExecuteCmd("delete from imp_" + ownerId + "");
             string logfile_path = "io" + ownerId + ".txt";
@@ -218,8 +218,8 @@ namespace wstcp
 
 
 
-                        cmd.CommandText = "insert into imp_" + ownerId + " (GoodCode,zn,zn_z,pr_spr,pr_b,z2,z3,qty,zt,name,xtn,xtk,brend,xname,ens, pr_vip, pr_spec, pr_kropt, pr_opt, pr_ngc,salekrat) values "+
-                                                                        "(@GoodCode,@zn,@zn_z,@pr_spr,@pr_b,@z2,@z3,@qty,@zt,@name,@xtn,@xtk,@brend,@xname,@ens, @pr_vip, @pr_spec, @pr_kropt, @pr_opt,@pr_ngc,@salekrat)";
+                        cmd.CommandText = "insert into imp_" + ownerId + " (GoodCode,zn,zn_z,pr_spr,pr_b,z2,z3,qty,zt,name,xtn,xtk,brend,xname,ens, pr_vip, pr_spec, pr_kropt, pr_opt, pr_ngc,salekrat,lcd) values "+
+                                                                        "(@GoodCode,@zn,@zn_z,@pr_spr,@pr_b,@z2,@z3,@qty,@zt,@name,@xtn,@xtk,@brend,@xname,@ens, @pr_vip, @pr_spec, @pr_kropt, @pr_opt,@pr_ngc,@salekrat,getdate())";
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)
@@ -309,7 +309,7 @@ namespace wstcp
 
 
 
-        public static void ImportAngood()
+        public static void ImportAngood(string abspathfile)
         {
             if (cNum.cToInt(db.GetDbTable("select count(*) from angood where state='u'").Rows[0][0])>0)
                 return;
@@ -323,7 +323,7 @@ namespace wstcp
             SqlCommand cmd = cn.CreateCommand();
             int i = 0;
             //DateTime lcd = File.GetLastWriteTime(filepath);
-            string[] lines = File.ReadAllLines(webIO.GetAbsolutePath("../exch/angood.csv"));
+            string[] lines = File.ReadAllLines(abspathfile);
             string[] lg;
 
             logtxt.AppendLine("impost: read: " + lines.Length + " " + DateTime.Now.ToString());
@@ -463,7 +463,7 @@ namespace wstcp
                 return 0;
             }
 
-            if (db.GetDbTable("select goodcode from fullimp where CONVERT(varchar,lastupd,104)=CONVERT(varchar,getdate(),104)").Rows.Count > 100)
+            if (db.GetDbTable("select goodcode from fullimp where CONVERT(varchar,lcd,104)=CONVERT(varchar,getdate(),104)").Rows.Count > 100)
                 return 0;
             db.ExecuteCmd("delete from fullimp");
             int w = 0;
@@ -675,7 +675,6 @@ namespace wstcp
             try
             {
                 lines = File.ReadAllLines(filename);
-                //logtxt.AppendLine("fullimport:100000 file read: " + lines.Length + " lines " + DateTime.Now.ToString());
                 if (lines.Length == 0)
                 {
 
@@ -685,14 +684,10 @@ namespace wstcp
             }
             catch
             {
-             //   logtxt.AppendLine("fullimport:100000 ERROR file read " + DateTime.Now.ToString());
                 appError.SaveError("ImportAcync", 657, " fullimport ERROR file read", "timer");
                 return 0;
             }
 
-            //if (db.GetDbTable("select goodcode from fullimp where CONVERT(varchar,lastupd,104)=CONVERT(varchar,getdate(),104)").Rows.Count > 100)
-            //    return 0;
-            //db.ExecuteCmd("delete from fullimp");
             int w = 0;
             
             string[] lg;

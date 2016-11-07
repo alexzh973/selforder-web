@@ -197,7 +197,7 @@
                 <table>
                     <tr>
                         <td>
-                            <img src="<%#Eval("img") %>" width="100" /></td>
+                            <img src="../img.ashx?act=good&id=<%#Eval("goodId") %>" width="100" /></td>
                         <td>
                             <div class="reclama-price"><%#Eval("price") %>р.</div>
                             <br />
@@ -232,7 +232,9 @@
                 <table>
                     <tr>
                         <td>
-                            <img src="<%#Eval("img") %>" width="100" /></td>
+                            
+                            <img src="../img.ashx?act=good&id=<%#Eval("goodId") %>" width="100" />
+                        </td>
                         <td>
                             <div class="reclama-price"><%#Eval("price") %>р.</div>
                             <br />

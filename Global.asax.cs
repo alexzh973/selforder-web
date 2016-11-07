@@ -25,8 +25,8 @@ namespace wstcp
             get { return __url; }
         }
 
-        static string path = System.AppDomain.CurrentDomain.BaseDirectory + "exch";
-        public static bool is_dev = (HelpersPath.RootUrl.ToLower().IndexOf("localhost") > -1);
+        static string path_exch = System.AppDomain.CurrentDomain.BaseDirectory + "exch";
+        public static bool is_dev = false;
         public static Hashtable adrs;
         public static List<string> ips;
 
@@ -35,7 +35,7 @@ namespace wstcp
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            
             ensoCom.db.InitDbConnection("default", System.Configuration.ConfigurationManager.AppSettings["defaultcn"]);
             ImportAsync.Clear_buzy(100000);
             ImportAsync.Clear_buzy(100001);
@@ -77,6 +77,7 @@ namespace wstcp
         protected void Session_Start(object sender, EventArgs e)
         {
             __url = string.Format("http://{0}", Request.ServerVariables["HTTP_HOST"]);
+            is_dev = (__url.ToLower().IndexOf("localhost") > -1);
             ensoCom.db.InitDbConnection("default", System.Configuration.ConfigurationManager.AppSettings["defaultcn"]);
 
             if (adrs == null)
@@ -224,19 +225,49 @@ namespace wstcp
             }
         }
 
+        static string  getFilename(int ownerId, int whId)
+        { 
+            //УЦСК: 100000_100000.csv
+            //челяб: 100001_100001.csv
+            //тагил: 100002_100003.csv
+            //тюмень: 100003_100004.csv
+            //Сургут: 100004_100002.csv
+            string flname = "1.1";
+            switch (ownerId+"_"+whId)
+            {
+                case "100000_100000":
+                    flname = "ucsk.csv";
+                    break;
+                case "100001_100001":
+                    flname = "chelabinsk.csv";
+                    break;
+                case "100002_100003":
+                    flname = "tag.csv";
+                    break;
+                case "100003_100004":
+                    flname = "tumen.csv";
+                    break;
+                case "100004_100002":
+                    flname = "tumen_surgut.csv";
+                    break;
+
+            }
+            return flname;
+        }
 
         private static void import_ost(int ownerId, int whId)
         {
-            if (File.Exists(path + @"\" + ownerId + "_" + whId + ".csv") && (is_dev || ImportAsync.need_import(File.GetLastWriteTime(path + @"\" + ownerId + "_" + whId + ".csv"), ownerId)) && !ImportAsync.Is_buzy_any())
+            string flname = getFilename(ownerId, whId);
+            if (File.Exists(path_exch + @"\" + flname) && (is_dev || ImportAsync.need_import(File.GetLastWriteTime(path_exch + @"\" + flname), ownerId)) && !ImportAsync.Is_buzy_any())
             {
                 try
                 {
                     eLog log = new eLog();
                     log.Stack.Add(new eLog.LogRecord(new sObject(ownerId, "import"), "ost", "", DateTime.Now.ToString(), "I"));
                     eLog.Save(log, ownerId);
-                    ImportAsync.Import_ost(ownerId, path + @"\" + ownerId + "_" + whId + ".csv", true);
+                    ImportAsync.Import_ost(ownerId, path_exch + @"\" + flname, true);
                     ImportAsync.Clear_buzy(ownerId);
-                    File.Delete(path + @"\" + ownerId + "_" + whId + ".csv");
+                    File.Delete(path_exch + @"\" + flname);
                 }
                 catch (Exception ex)
                 {
@@ -264,21 +295,21 @@ namespace wstcp
 
 
             string res = "";
-            if (File.Exists(path + @"\full_import.csv") && !ImportAsync.Is_buzy_any() && !ImportAsync.checkTodayImported())
+            if (File.Exists(path_exch + @"\full_import.csv") && !ImportAsync.Is_buzy_any() && !ImportAsync.checkTodayImported())
             {
                 try
                 {
                     log = new eLog();
-                    log.Stack.Add(new eLog.LogRecord(new sObject(100000, "import"), "full", "", DateTime.Now.ToString(), "I"));
+                    log.Stack.Add(new eLog.LogRecord(new sObject(100000, "import"), "full_import", "", DateTime.Now.ToString(), "I"));
                     eLog.Save(log, 100973);
 
-                    res = ImportAsync.Full_import(path + @"\full_import.csv");
+                    res = ImportAsync.Full_import(path_exch + @"\full_import.csv");
                     ImportAsync.Clear_buzy(100000);
 
-                    ImportAsync.ImportAngood();
+                    ImportAsync.ImportAngood(path_exch + @"\angood.csv");
 
-                    File.Delete(path + @"\full_import.csv");
-                    File.Delete(webIO.GetAbsolutePath("../exch/angood.csv"));
+                    File.Delete(path_exch + @"\full_import.csv");
+                    File.Delete(path_exch + @"\angood.csv");
                 }
                 catch (Exception ex)
                 {
@@ -286,16 +317,11 @@ namespace wstcp
                 }
             }
 
-
             import_ost(100000, 100000); // уцск
             import_ost(100001, 100001); // челяб
             import_ost(100002, 100003); // тагил
             import_ost(100003, 100004); // тюмень
             import_ost(100004, 100002); // сургут
-
-
-
-
 
         }
 

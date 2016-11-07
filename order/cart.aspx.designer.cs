@@ -190,7 +190,7 @@ namespace wstcp {
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::wstcp.account.DgInfo DgInfo1;
+        protected global::wstcp.DgInfo DgInfo1;
         
         /// <summary>
         /// txNameOrder элемент управления.

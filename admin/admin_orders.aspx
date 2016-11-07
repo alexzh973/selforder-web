@@ -6,8 +6,8 @@
     
     <div class="f-row">
 
-    <label>Клиент</label> <asp:DropDownList ID="dlSubject" runat="server" AutoPostBack="True" OnSelectedIndexChanged="btnSearch_Click"></asp:DropDownList></div>
-    <div class="f-row"><label>Торговый агент</label> <asp:DropDownList ID="dlTa" runat="server" AutoPostBack="True" OnSelectedIndexChanged="btnSearch_Click"></asp:DropDownList></div>
+    <label>Клиент</label> <asp:DropDownList ID="dlSubject" CssClass="select" runat="server" AutoPostBack="True" OnSelectedIndexChanged="btnSearch_Click"></asp:DropDownList></div>
+    <div class="f-row"><label>Торговый агент</label> <asp:DropDownList ID="dlTa" CssClass="select" runat="server" AutoPostBack="True" OnSelectedIndexChanged="btnSearch_Click"></asp:DropDownList></div>
     <div class="f-row"><label>найти по содержанию</label> <asp:TextBox ID="txSearch" runat="server"></asp:TextBox>
     <asp:Button ID="btnSearch" runat="server" Text="найти" OnClick="btnSearch_Click" CssClass="f-bu" /></div>
     <div class="f-row"><label>кто формировал заявку</label><asp:RadioButtonList ID="rbSelf" runat="server" AutoPostBack="True" OnSelectedIndexChanged="btnSearch_Click" RepeatDirection="Horizontal" RepeatLayout="Flow">

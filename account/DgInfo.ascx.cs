@@ -7,9 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace wstcp.account
+namespace wstcp
 {
-    public partial class DgInfo : System.Web.UI.UserControl
+    public partial class DgInfo : uc_base
     {
         protected void Page_Load(object sender, EventArgs e)
         {

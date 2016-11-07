@@ -78,6 +78,12 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="errormessage" 
                                             ControlToValidate="txEmail" ErrorMessage="Вы забыли указать email"></asp:RequiredFieldValidator>
                                     </div>
+                                    
+                                    <div id="divsmscode">
+                           
+                            <span>для доступа используйте пожалуйста пароль переданный Вам СМС-сообщением</span>
+                           <a href="#" onclick="showSmsCode()">повторить отправку пароля</a>
+                            </div>
                                 </td>
                             </tr>
                             <tr>
@@ -114,6 +120,26 @@
                                 </td>
                             </tr>
                         </table>
+                        
+                        <script type="text/javascript">
+
+                            $(document).ready(function () {
+                                $('#divsmscode').hide();
+                            });
+
+
+                            function showSmsCode() {
+                                $.ajax({
+                                    url: '../subj.ashx?sid=' + sid + '&act=trygetsms&e=' + $('#txLogin').val(),
+                                    success: function (data) {
+                                        if (data == 'Y') {
+                                            alert('Вам выслана смс с паролем доступа');
+                                            $('#divsmscode').show();
+                                        }
+                                    }
+                                });
+                            }
+            </script>
                     </asp:View>
                     <asp:View ID="vSendMessage" runat="server">
                         <asp:Label ID="lbSendMessage" runat="server" Text=""></asp:Label><br />

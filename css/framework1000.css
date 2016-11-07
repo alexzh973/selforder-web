@@ -484,9 +484,7 @@ tfoot th {
   border-top: 1px solid #eeeeee;
 }
 
-/*table.grid tr:hover td {
-  background: #fdf6e3;
-}*/
+
 .f-table-zebra tbody tr:nth-child(2n) {
   background: #f8f8f8;
 }

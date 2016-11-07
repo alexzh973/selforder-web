@@ -165,6 +165,7 @@ namespace wstcp
         
         private void load_struct()
         {
+            //return;
             if (rbRegselect.SelectedValue == "single")
                 load_struct_single();
             else

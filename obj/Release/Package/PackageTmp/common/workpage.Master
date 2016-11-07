@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="workpage.Master.cs" Inherits="wstcp.workpage" %>
 
+<%@ Register Src="~/account/LoginStringInHeader.ascx" TagPrefix="uc1" TagName="LoginStringInHeader" %>
+
+
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="ru"><![endif]-->
@@ -86,9 +89,9 @@
     <div>
         <form id="form1" runat="server" onsubmit="showwait()">
 <%
-                                                        IAM iam = IamServices.GetIam(Session.SessionID);
-                                                        Owner own = new Owner(iam.OwnerID);
-                                                    %>   
+IAM iam = IamServices.GetIam(Session.SessionID);
+Owner own = new Owner(iam.OwnerID);
+%>   
                      <div class="g whitefon">
                 
                 
@@ -106,33 +109,8 @@
                                             <td width="220px"><a class="bold small" href="http://www.santur.ru" target="_blank">перейти на сайт www.SANTUR.ru</a></td>
                                             <td>
                                                 <div class="right small grayfon padding2">
+                                                    <uc1:LoginStringInHeader runat="server" ID="LoginStringInHeader" />  
                                                     
-                                                    <span>пользователь: <a class="bold" href="javascript:return 0;" onclick="openflywin('../account/card.aspx?id=<%=iam.ID %>', 600, 600, '<%=iam.Name %>')"><%=iam.Name %></a></span>
-
-                                                    <%
-                                                        if (iam.ID >= 100000 && iam.PresentedSubjectID > 0)
-                                                        {
-                                                    %>
-                                                    &nbsp;<span><asp:Literal ID="lbSubject" runat="server"></asp:Literal></span>
-                                                    &nbsp;<span title="Текущий баланс по взаиморасчетам"><asp:Literal ID="lbCurrBlnc" runat="server"></asp:Literal></span>
-                                                    <%
-                                                    }
-                                                    %>
-
-                                                    <%
-                                                        if (iam.ID >= 100000)
-                                                        {
-                                                    %>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=" padding2" style="color: #ED7A44; width: 80px; padding-left: 8px !important; padding-right: 8px !important;" href="../account/login.aspx?act=exit">выход </a>
-                                                    <%
-                                                    }
-                                                    else
-                                                    {
-                                                    %>
-                                                    <a href="../account/login.aspx">авторизация</a> | <a href="../account/login.aspx?act=new">не зарегистрированы?</a>
-                                                    <%   
-                                                    }
-                                                    %>
                                                 </div>
                                             </td>
 

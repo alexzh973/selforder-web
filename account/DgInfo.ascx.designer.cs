@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace wstcp.account {
+namespace wstcp {
     
     
     public partial class DgInfo {

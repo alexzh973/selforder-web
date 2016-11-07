@@ -99,10 +99,11 @@
                 </tr>
                 <tr>
                     <td class="profile-field-title">
-                        ID
+                        
                     </td>
                     <td class="profile-field">
-                        <asp:TextBox ID="txID" runat="server" Width="50px" ReadOnly="True"></asp:TextBox>&nbsp;&nbsp;
+                        ID <asp:TextBox ID="txID" runat="server" Width="50px" ReadOnly="True"></asp:TextBox>&nbsp;&nbsp;ИНН <asp:TextBox ID="txINN" runat="server" MaxLength="50" Width="100"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Код 1С <asp:TextBox ID="txCode" Width="100" MaxLength="11" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -138,32 +139,18 @@
                 </tr>
                 <tr>
                     <td class="profile-field-title">
-                        ИНН
-                    </td>
+                        &nbsp;</td>
                     <td class="profile-field">
-                        <asp:TextBox ID="txINN" runat="server" MaxLength="50" Width="100"></asp:TextBox>
+                        <asp:CheckBox ID="chUseSmsAuthorization" runat="server" Text="Режим авторизации через код по SMS по умолчанию для новых клиентов." />
                     </td>
                 </tr>
+                
+                
+                
                 <tr>
-                    <td class="profile-field-title">
-                        Код 1С
-                    </td>
-                    <td class="profile-field">
-                        <asp:TextBox ID="txCode" Width="100" MaxLength="11" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="profile-field-title">
-                        Код Договора
-                    </td>
-                    <td class="profile-field">
-                        <asp:TextBox ID="txCodeAgr" Width="100" MaxLength="11" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="profile-field-title">Тип цен по договору</td>
-                    <td class="profile-field">
-                        <asp:DropDownList ID="dlPriceType" runat="server">
+                    <td class="profile-field-title"></td>
+                    <td class="profile-field">Код Договора <asp:TextBox ID="txCodeAgr" Width="100" MaxLength="11" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Тип цен по договору <asp:DropDownList ID="dlPriceType" runat="server">
                             <asp:ListItem Value="pr_b">Базовый уровень</asp:ListItem>
                             <asp:ListItem Value="pr_opt">Оптовая</asp:ListItem>
                             <asp:ListItem Value="pr_kropt">Крупный опт</asp:ListItem>
@@ -226,6 +213,14 @@
                     </td>
                     <td class="profile-field">
                         <asp:TextBox ID="txEmailPers" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="profile-field-title">
+                        моб. тел.
+                    </td>
+                    <td class="profile-field">
+                        <asp:TextBox ID="txPhone" runat="server" Width="100%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

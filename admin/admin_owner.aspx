@@ -160,6 +160,13 @@
                     <td class="profile-field-name rightalign">
                         &nbsp;</td>
                     <td class="profile-field">
+                        <asp:CheckBox ID="chUseSmsAuthorization" runat="server" Text="Режим авторизации через код по SMS по умолчанию для новых клиентов." />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="profile-field-name rightalign">
+                        &nbsp;</td>
+                    <td class="profile-field">
                         <asp:CheckBox ID="chShowInvDiscount" runat="server" Text="Показывать скидку от базовой цены в заявке" />
                     </td>
                 </tr>

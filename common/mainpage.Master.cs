@@ -45,6 +45,11 @@ namespace wstcp
 
         }
 
+        public void ReloadUserString()
+        {
+            LoginStringInHeader1.Reload();
+
+        }
         public bool VisibleLeftPanel
         {
             set
@@ -56,8 +61,11 @@ namespace wstcp
         }
         public bool VisibleRightPanel
         {
-            set { rightplace.Visible = value; 
-                __content.CssClass = (value)? ((VisibleLeftPanel) ? "g-6" : "g-9") : ((VisibleLeftPanel) ? "g-9" : "g-12"); }
+            set
+            {
+                rightplace.Visible = value;
+                __content.CssClass = (value) ? ((VisibleLeftPanel) ? "g-6" : "g-9") : ((VisibleLeftPanel) ? "g-9" : "g-12");
+            }
             get { return rightplace.Visible; }
         }
         public string SelectedMenu
@@ -69,48 +77,41 @@ namespace wstcp
         protected void Page_Load(object sender, EventArgs e)
         {
             iam = IamServices.GetIam(Session.SessionID);
-            if (!IsPostBack)
-            {
-                
-                
-                
-                
-            }
             if (iam.PresentedSubjectID > 0)
-                {
-                    //Subject subj = new Subject(iam.PresentedSubjectID, iam);
-                    show_personalTAs(iam.PresentedSubject);
-                    show_subj_info(iam.PresentedSubject);
-                }
-                else
-                {
-                    lbSubject.Text = "";
-                }
+            {
+                //Subject subj = new Subject(iam.PresentedSubjectID, iam);
+                show_personalTAs(iam.PresentedSubject);
+                //show_subj_info(iam.PresentedSubject);
+            }
+            else
+            {
+                //lbSubject.Text = "";
+            }
             paint_menu_2();
         }
-        public void show_subj_info(Subject subj)
-        {
-            lbCurrBlnc.Text = "";           
+        //public void show_subj_info(Subject subj)
+        //{
+        //    lbCurrBlnc.Text = "";           
 
-            lbSubject.Text = "<strong title='ИНН "+subj.INN+"'>" + subj.Name + "</strong>";
+        //    lbSubject.Text = "<strong title='ИНН "+subj.INN+"'>" + subj.Name + "</strong>";
 
-            DGinfo d = Subject.GetDg(subj.ID, subj.CodeDG);
+        //    DGinfo d = Subject.GetDg(subj.ID, subj.CodeDG);
 
-            lbCurrBlnc.Text = "Баланс "+((d.CurrentDZ >= 0) ? ((d.CurrentDZ == 0) ? "0.00руб" : "<span class='red'>-" + d.CurrentDZ + "руб</span>") : "<span class='green'>+" + (d.CurrentDZ* -1) + "руб</span>");
+        //    lbCurrBlnc.Text = "Баланс "+((d.CurrentDZ >= 0) ? ((d.CurrentDZ == 0) ? "0.00руб" : "<span class='red'>-" + d.CurrentDZ + "руб</span>") : "<span class='green'>+" + (d.CurrentDZ* -1) + "руб</span>");
 
-        }
+        //}
         public void show_personalTAs(Subject subj)
         {
 
             if (iam == null) iam = IamServices.GetIam(Session.SessionID);
-           
+
             if (subj.ID == 0)
             {
                 rpTAs.Visible = false;
                 return;
             }
             DataTable dt = db.GetDbTable("select 0 as id, '' as Name, '' as email, '' as phone, '' as photo where 1=0");
-           
+
             DataRow nr;
             if (subj.EmailTAs == "")
             {
@@ -177,7 +178,7 @@ namespace wstcp
         {
             if (iam.ID < 100000) return;
             string btns = "";
-            
+
             btns += "<a href='../order/orderdefault.aspx' class='btn-new-order' >Сделать заявку</a>";
             btns += "<li class='" + ((SelectedMenu == "msg") ? "selected" : "") + "'><a onclick=\"openflywin('../msg.aspx?rgw=fly', 600, 430)\" href='javascript:return 0;' class='btn-send-msg'>Отправить сообщение</a></li>";
 
@@ -192,17 +193,17 @@ namespace wstcp
             blockMainMenu.Text += "<ul >";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "home") ? "selected" : "") + "'><a href='../default.aspx' >Главная</a></li>";
             if (iam.ID >= 100000)
-                blockMainMenu.Text += "<li class='bold white " + ((SelectedMenu == "order") ? "selected" : "") + "'><a href='../order/orderdefault.aspx' >Заявка "+((iam.CurOrder!=null && iam.CurOrder.Items.Count>0)?"<span title='Есть несохраненная заявка' class='red bold'>*</a>":"")+"</a></li>";
+                blockMainMenu.Text += "<li class='bold white " + ((SelectedMenu == "order") ? "selected" : "") + "'><a href='../order/orderdefault.aspx' >Заявка " + ((iam.CurOrder != null && iam.CurOrder.Items.Count > 0) ? "<span title='Есть несохраненная заявка' class='red bold'>*</a>" : "") + "</a></li>";
             if (iam.ID >= 100000 && (iam.IsAdmin || iam.IsTA || iam.IsSaller))
                 blockMainMenu.Text += "<li class='bold white " + ((SelectedMenu == "incash") ? "selected" : "") + "'><a href='../good/list.aspx'>Тов. ост. минихолдинга</a></li>";
-                //    blockMainMenu.Text += "<li class='" + ((SelectedMenu == "msg") ? "selected" : "") + "'><a href='../msg.aspx'>Отправить сообщение</a></li>";
+            //    blockMainMenu.Text += "<li class='" + ((SelectedMenu == "msg") ? "selected" : "") + "'><a href='../msg.aspx'>Отправить сообщение</a></li>";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "sales") ? "selected" : "") + "'><a href='../good/sales.aspx'>Акции</a></li>";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "lk") ? "selected" : "") + "'><a href='../account/lk.aspx'>Личный кабинет</a></li>";
 
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "help") ? "selected" : "") + "'><a href='../common/help.aspx'>Инструкция</a></li>";
             if (iam.ID >= 100000)
                 blockMainMenu.Text += "<li><a onclick=\"openflywin('../msg.aspx?rgw=fly', 600, 430)\" href='javascript:return 0;'>Обратная связь</a></li>";
-           
+
 
             if (iam.IsSuperAdmin || iam.IsAdmin)
             {
@@ -230,8 +231,8 @@ namespace wstcp
             iam = IamServices.GetIam(Session.SessionID);
             paint_menu_2();
 
-            lbSubject.Text = "";
-
+            //lbSubject.Text = "";
+            LoginStringInHeader1.Reload();
 
         }
 

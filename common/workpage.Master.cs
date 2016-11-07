@@ -63,9 +63,9 @@ namespace wstcp
                 {                   
 
                     
-                    Subject subj = new Subject(iam.PresentedSubjectID, iam);
-                    show_personalTAs(subj);
-                    show_subj_info(subj);
+                    //Subject subj = new Subject(iam.PresentedSubjectID, iam);
+                    show_personalTAs(iam.PresentedSubject);
+                    show_subj_info(iam.PresentedSubject);
 
                 }
                 
@@ -74,13 +74,14 @@ namespace wstcp
         }
         public void show_subj_info(Subject subj)
         {
-            lbCurrBlnc.Text = "";
+            LoginStringInHeader.Reload();
+            //lbCurrBlnc.Text = "";
 
-            lbSubject.Text = "<strong title='ИНН " + subj.INN + "'>" + subj.Name + "</strong>";
+            //lbSubject.Text = "<strong title='ИНН " + subj.INN + "'>" + subj.Name + "</strong>";
 
-            DGinfo d = Subject.GetDg(subj.ID, subj.CodeDG);
+            //DGinfo d = Subject.GetDg(subj.ID, subj.CodeDG);
 
-            lbCurrBlnc.Text = "Баланс " + ((d.CurrentDZ >= 0) ? ((d.CurrentDZ == 0) ? "0.00руб" : "<span class='red'>-" + d.CurrentDZ + "руб</span>") : "<span class='green'>" + (d.CurrentDZ* -1) + "руб</span>");
+            //lbCurrBlnc.Text = "Баланс " + ((d.CurrentDZ >= 0) ? ((d.CurrentDZ == 0) ? "0.00руб" : "<span class='red'>-" + d.CurrentDZ + "руб</span>") : "<span class='green'>" + (d.CurrentDZ* -1) + "руб</span>");
 
         }
         public void show_personalTAs(Subject subj)

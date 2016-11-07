@@ -178,6 +178,8 @@ namespace wstcp
             ord.Dg = codedg;
             ord.State = "u";
             GoodOwnInfo gi;
+            if (ord.ID>0)
+                ord.Items.Clear();
             foreach (OrderItem item in items)
             {
                 OrderItem existitem = ord.Items.Find(x => x.GoodCode == item.GoodCode);
@@ -255,6 +257,28 @@ namespace wstcp
             return db.ExecuteCmd("update DG set currb="+cNum.cToDecimal(summVz)+", pr='"+type_price+"', lcd=(getdate())  where codedg='"+codedg+"' and ownerid=" + iam.OwnerID);
         }
 
+        [WebMethod]
+        public int UpdateTeoInfo(int orderId, string teodate, string stady, string car_and_driver, string usr, string psw)
+        {
+            if (orderId<=0 || ("" + psw).Length < 10) return 0;
+            
+            IAM iam = IamServices.Login(usr, psw, usr, usr);
+            if (iam.ID <= 0) return 0;
+
+            db.ExecuteCmd("update ORD set TEOState='" + stady + "', TEODate=" + cDate.Date2Sql(teodate) + ", teotrans='" + car_and_driver + "' where id=" + orderId + " ");
+            return 1;
+        }
+
+        [WebMethod]
+        public int CloseTeoInfo(int orderId, string usr, string psw)
+        {
+            if (orderId <= 0 || ("" + psw).Length < 10) return 0;
+
+            IAM iam = IamServices.Login(usr, psw, usr, usr);
+            if (iam.ID <= 0) return 0;
+            db.ExecuteCmd("update ORD set TEOState='F' where id=" + orderId + " ");
+            return 1;
+        }
 
 
         [WebMethod]

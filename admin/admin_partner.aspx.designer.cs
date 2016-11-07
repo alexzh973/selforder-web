@@ -193,6 +193,24 @@ namespace wstcp {
         protected global::System.Web.UI.WebControls.TextBox txID;
         
         /// <summary>
+        /// txINN элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txINN;
+        
+        /// <summary>
+        /// txCode элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txCode;
+        
+        /// <summary>
         /// txName элемент управления.
         /// </summary>
         /// <remarks>
@@ -229,22 +247,13 @@ namespace wstcp {
         protected global::System.Web.UI.WebControls.DropDownList dlParent;
         
         /// <summary>
-        /// txINN элемент управления.
+        /// chUseSmsAuthorization элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txINN;
-        
-        /// <summary>
-        /// txCode элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txCode;
+        protected global::System.Web.UI.WebControls.CheckBox chUseSmsAuthorization;
         
         /// <summary>
         /// txCodeAgr элемент управления.
@@ -326,6 +335,15 @@ namespace wstcp {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txEmailPers;
+        
+        /// <summary>
+        /// txPhone элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txPhone;
         
         /// <summary>
         /// txPassPers элемент управления.

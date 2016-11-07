@@ -111,9 +111,12 @@
                 <table width="100%">
                     <tr>
                         <td width="120px">
-                            <div><asp:LinkButton ID="lbtnRequestInvoice" CssClass="micro bold" runat="server" OnClick="lbtnRequestInvoice_Click">Прошу перевыставить<br/> счет на оплату</asp:LinkButton></div><br/>
+                            <div>
+                                <asp:LinkButton ID="lbtnRequestInvoice" CssClass="micro bold" Visible="false" runat="server" OnClick="lbtnRequestInvoice_Click">Прошу перевыставить<br/> счет на оплату</asp:LinkButton>
+                            </div><br/>
 <div><asp:Literal ID="linkInvoice" runat="server"></asp:Literal></div>
-                            <a href="#" onclick="printBlock('divorder')" class="">печать заявки</a>
+                            <img src="../simg/ord.png"  onclick="printBlock('divorder')" style="cursor:pointer;" title="Распечатать заявку"/>
+                            <%--<a href="#" onclick="printBlock('divorder')" class="">печать заявки</a>--%>
                         </td>
                         <td>Текущий статус:
                             <asp:LinkButton ID="btnRefresh" runat="server" ToolTip="проверить  статус (обновить информацию)" OnClick="btnRefresh_Click" CssClass="slowfunc">обновить</asp:LinkButton>
@@ -121,10 +124,10 @@
                             <strong class="bigsize">
                                 <asp:Literal ID="lbState" runat="server"></asp:Literal></strong>
                             <div>
-                                Текущее состоятие по взаиморасчетам:
+                                
                         <div>
                             <uc3:DgInfo ID="DgInfo1" runat="server" />
-                            <asp:Literal ID="lbBalance" runat="server"></asp:Literal>
+                            
                         </div>
                             </div>
 
@@ -133,9 +136,9 @@
                             <p class="padding5 left">
                                 <asp:Label ID="lbLock" CssClass="small bold" runat="server" Text=""></asp:Label>
                             </p>
-                            <asp:MultiView ID="mvCmd" runat="server">
+                            <asp:MultiView ID="mvCmd" Visible="False" runat="server">
                                 <asp:View ID="vBtns" runat="server">
-                                    <div class="bold">Возможные действия:</div>
+                                    <%--<div class="bold">Возможные действия:</div>--%>
                                     <div>
                                         <asp:LinkButton ID="lbtnNextStady" runat="server" OnClick="lbtnNextStady_Click" CssClass="slowfunc"></asp:LinkButton>
                                         <asp:LinkButton ID="lbtnCancel" runat="server" OnClick="lbtnCancel_Click" ToolTip="Отменить заявку" CssClass="slowfunc"></asp:LinkButton>
