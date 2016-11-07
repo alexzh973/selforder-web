@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gw1.devinosms.com/WebService.asmx" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://gw1.devinosms.com/WebService.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://gw1.devinosms.com/WebService.asmx">
+      <s:element name="GetCreditBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreditBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCreditBalanceResult" type="tns:CommandStatus" />
+            <s:element minOccurs="1" maxOccurs="1" name="creditBalance" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="CommandStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK_Operation_Completed" />
+          <s:enumeration value="Error_Not_Enough_Credits" />
+          <s:enumeration value="Error_Message_Rejected" />
+          <s:enumeration value="Error_Invalid_Source_Address" />
+          <s:enumeration value="Error_Invalid_Destination_Address" />
+          <s:enumeration value="Error_SMS_User_Disabled" />
+          <s:enumeration value="Error_Invalid_MessageID" />
+          <s:enumeration value="Error_Invalid_Header" />
+          <s:enumeration value="Error_Invalid_Login" />
+          <s:enumeration value="Error_Invalid_Password" />
+          <s:enumeration value="Error_Unauthorised_IP_Address" />
+          <s:enumeration value="Error_Invalid_Activation_Code" />
+          <s:enumeration value="Error_SMS_User_Not_Activated" />
+          <s:enumeration value="Error_Message_Queue_Full" />
+          <s:enumeration value="Error_Gateway_Offline" />
+          <s:enumeration value="Error_Gateway_Busy" />
+          <s:enumeration value="Error_Database_Offline" />
+          <s:enumeration value="Error_No_Messages_Selected" />
+          <s:enumeration value="Error_Outbox_Empty" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMessageState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMessageStateResult" type="tns:CommandStatus" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportedDateUtc" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageState" type="tns:MessageState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MessageState">
+        <s:restriction base="s:string">
+          <s:enumeration value="Enqueued" />
+          <s:enumeration value="Sending" />
+          <s:enumeration value="Delivered_To_Gateway" />
+          <s:enumeration value="Sent" />
+          <s:enumeration value="Delivered_To_Recipient" />
+          <s:enumeration value="Error_Invalid_Destination_Address" />
+          <s:enumeration value="Error_Invalid_Source_Address" />
+          <s:enumeration value="Error_Incompatible_Destination" />
+          <s:enumeration value="Error_Rejected" />
+          <s:enumeration value="Error_Expired" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMessageState2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageState2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMessageState2Result" type="tns:CommandStatus" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportedDateUtc" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageState" type="tns:MessageState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTextMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReport" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="flashMessage" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="validityPeriod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTextMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendTextMessageResult" type="tns:CommandStatus" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageId" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendWapPushSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WapUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DescriptionText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deliveryReport" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPushSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendWapPushSMSResult" type="tns:CommandStatus" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageId" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCreditBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCreditBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCreditBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageState" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageState2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageState2" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageState2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageState2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendTextMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendTextMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendTextMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendWapPushSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendWapPushSMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DEVINOSoap">
+    <wsdl:operation name="GetCreditBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check credit balance of sms user</wsdl:documentation>
+      <wsdl:input message="tns:GetCreditBalanceSoapIn" />
+      <wsdl:output message="tns:GetCreditBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get status of message from last 48 hours</wsdl:documentation>
+      <wsdl:input message="tns:GetMessageStateSoapIn" />
+      <wsdl:output message="tns:GetMessageStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get status of message from current month</wsdl:documentation>
+      <wsdl:input message="tns:GetMessageState2SoapIn" />
+      <wsdl:output message="tns:GetMessageState2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send simple text sms</wsdl:documentation>
+      <wsdl:input message="tns:SendTextMessageSoapIn" />
+      <wsdl:output message="tns:SendTextMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPushSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send Wap-Push SMS</wsdl:documentation>
+      <wsdl:input message="tns:SendWapPushSMSSoapIn" />
+      <wsdl:output message="tns:SendWapPushSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DEVINOSoap" type="tns:DEVINOSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCreditBalance">
+      <soap:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetCreditBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState">
+      <soap:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetMessageState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState2">
+      <soap:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetMessageState2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <soap:operation soapAction="http://gw1.devinosms.com/WebService.asmx/SendTextMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPushSMS">
+      <soap:operation soapAction="http://gw1.devinosms.com/WebService.asmx/SendWapPushSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DEVINOSoap12" type="tns:DEVINOSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCreditBalance">
+      <soap12:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetCreditBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState">
+      <soap12:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetMessageState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageState2">
+      <soap12:operation soapAction="http://gw1.devinosms.com/WebService.asmx/GetMessageState2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTextMessage">
+      <soap12:operation soapAction="http://gw1.devinosms.com/WebService.asmx/SendTextMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPushSMS">
+      <soap12:operation soapAction="http://gw1.devinosms.com/WebService.asmx/SendWapPushSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DEVINO">
+    <wsdl:port name="DEVINOSoap" binding="tns:DEVINOSoap">
+      <soap:address location="http://gw1.devinosms.com/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DEVINOSoap12" binding="tns:DEVINOSoap12">
+      <soap12:address location="http://gw1.devinosms.com/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
