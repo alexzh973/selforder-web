@@ -84,6 +84,7 @@
     <Content Include="admin\admin_mail.aspx" />
     <Content Include="admin\admin_orders.aspx" />
     <Content Include="admin\admin_partner.aspx" />
+    <Content Include="admin\admin_remember.aspx" />
     <Content Include="admin\admin_sysmsg.aspx" />
     <Content Include="admin\admin_syssetting.aspx" />
     <Content Include="admin\admin_usr.aspx" />
@@ -667,6 +668,13 @@
     </Compile>
     <Compile Include="admin\admin_partner.aspx.designer.cs">
       <DependentUpon>admin_partner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_remember.aspx.cs">
+      <DependentUpon>admin_remember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_remember.aspx.designer.cs">
+      <DependentUpon>admin_remember.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\admin_sysmsg.aspx.cs">
       <DependentUpon>admin_sysmsg.aspx</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Web.Services;
 using System.Collections;
 using System.Data;
@@ -280,6 +281,57 @@ namespace wstcp
             return 1;
         }
 
+        [WebMethod]
+        public int UpdateGood(string goodCode, decimal salekrat, string zn, string zn_z, string zt, decimal qty, decimal pr_spr, decimal pr_ngc, decimal pr_vip, decimal pr_spec, decimal pr_kropt, decimal pr_opt, decimal pr_b, string usr, string psw)
+        {
+            int res = 0;
+            IAM iam = IamServices.Login(usr, psw, usr, usr);
+            if (iam.ID <= 0) return 0;
+            SqlConnection cn = new SqlConnection(db.DefaultCnString);
+            SqlCommand cmd = cn.CreateCommand();
+            try
+            {
+                cn.Open();
+                cmd.Parameters.AddWithValue("@OwnerId", iam.OwnerID);
+
+                cmd.Parameters.AddWithValue("@GoodCode", goodCode);
+                cmd.Parameters.AddWithValue("@zn", zn);
+                cmd.Parameters.AddWithValue("@zn_z", zn_z);
+                cmd.Parameters.AddWithValue("@zt", zt);
+                cmd.Parameters.AddWithValue("@pr_spr", pr_spr);
+                cmd.Parameters.AddWithValue("@pr_b", pr_b);
+                cmd.Parameters.AddWithValue("@qty", qty);
+
+                cmd.Parameters.AddWithValue("@pr_vip", pr_vip);
+                cmd.Parameters.AddWithValue("@pr_spec", pr_spec);
+                cmd.Parameters.AddWithValue("@pr_kropt", pr_kropt);
+                cmd.Parameters.AddWithValue("@pr_opt", pr_opt);
+                cmd.Parameters.AddWithValue("@pr_ngc", pr_ngc);
+                cmd.Parameters.AddWithValue("@salekrat", salekrat);
+                cmd.CommandText = "update OWNG set state='',lcd=getdate(),lc='" + iam.Name +
+                                  "', owng.pr_spr=@pr_spr, owng.pr_b=@pr_b, owng.qty=@qty, owng.zn=@zn, owng.zn_z=@zn_z, owng.zt=@zt,owng.pr_vip=@pr_vip, owng.pr_spec=@pr_spec, owng.pr_kropt=@pr_kropt, owng.pr_opt=@pr_opt,owng.pr_ngc=@pr_ngc,owng.salekrat=@salekrat where owng.ownerId=@OwnerId and owng.GoodCode=@GoodCode";
+                if (cmd.ExecuteNonQuery() <= 0)
+                {
+                    cmd.CommandText = "insert into OWNG (state, lcd, lc, pr_spr, pr_b, qty, zn, zn_z, zt, pr_vip, pr_spec, pr_kropt, pr_opt, pr_ngc, salekrat, ownerId, GoodCode) values" +
+                                      " ('',getdate(),'" + iam.Name + "', @pr_spr, @pr_b, @qty, @zn, @zn_z, @zt, @pr_vip, @pr_spec, @pr_kropt, @pr_opt, @pr_ngc, @salekrat, @OwnerId, @GoodCode)";
+                    cmd.ExecuteNonQuery();
+                    res = 1;
+                } else
+                {
+                    res = 2;
+                }
+                
+            }
+            catch
+            {
+                res = -1;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return res;
+        }
 
         [WebMethod]
         public int GetGoodID(int owner_id, string owner_good_code)

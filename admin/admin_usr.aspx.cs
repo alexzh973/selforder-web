@@ -255,7 +255,7 @@ namespace wstcp
                     {
                         e.Item.Cells[4].Text = "<a href='admin_usr.aspx?act=edit&id=" + id + "'>...</a>";
                         e.Item.Cells[5].Text = get_last_activity("" + r["Name"]);
-                        e.Item.Cells[4].Text += "<div><a href='admin_usr.aspx?" + Request.QueryString + "&rem=" + id + "' class='micro italic' title='помочь вспомнить пароль'>напомнить</a></div>";
+                        e.Item.Cells[4].Text += "<div><a href='#' onclick=\"openflywin('../admin/admin_remember.aspx?rem=" + r["ID"] + "',300,200,'Напоминание пароля')\" class='micro italic' title='помочь вспомнить пароль'>напомнить</a></div>";
 
                     }
                 }
