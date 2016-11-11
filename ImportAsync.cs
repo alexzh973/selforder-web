@@ -698,7 +698,7 @@ namespace wstcp
             cn.Open();
             try
             {
-                w = db.ExecuteCmd(cmd, "update OWNG set state='o' where ownerid=" + owner_id);
+                w = db.ExecuteCmd(cmd, "update OWNG set state='o'");
 
                 cmd.Parameters.AddWithValue("@Corrector", "fullimp");
                 cmd.Parameters.AddWithValue("@OwnerId", owner_id);
@@ -785,7 +785,7 @@ namespace wstcp
             if (result)
             {
                 db.ExecuteCmd("delete from OWNG where goodid not in (select id from good)");
-                db.ExecuteCmd("delete from OWNG where ownerid=@OwnerId and State='o'");
+                db.ExecuteCmd("delete from OWNG where State='o'");
                 db.ExecuteCmd("delete from GOOD where id not in (select goodid from owng)");
                 //try
                 //{
