@@ -16,8 +16,8 @@ namespace wstcp
             lbMess.Text = "";
             if (!IsPostBack)
             {
-               
-                
+
+
                 ((mainpage)Master).VisibleLeftPanel = false;
                 ((mainpage)Master).VisibleRightPanel = false;
 

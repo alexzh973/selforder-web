@@ -1,16 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wstcp", "wstcp.csproj", "{F5B7BD7E-0374-417E-9B38-710F3029D58E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{53C98BA9-2D71-4D98-B622-652CD946CC54} = {53C98BA9-2D71-4D98-B622-652CD946CC54}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ensoCore", "..\ensoCore\ensoCore.csproj", "{53C98BA9-2D71-4D98-B622-652CD946CC54}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrabGoodiesImgsFromENS", "..\GrabGoodiesImgsFromENS\GrabGoodiesImgsFromENS.csproj", "{C09696FB-8E4B-4247-A8CF-3BC09566997B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selforderlib", "..\selforderlib\selforderlib.csproj", "{FE24071A-2E8D-4823-B981-70A796A3C951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wstcpadmin", "..\wstcpadmin\wstcpadmin.csproj", "{AFE19F40-75D2-4A0D-A778-FCC342290D61}"
 EndProject
@@ -31,18 +26,10 @@ Global
 		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5B7BD7E-0374-417E-9B38-710F3029D58E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53C98BA9-2D71-4D98-B622-652CD946CC54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09696FB-8E4B-4247-A8CF-3BC09566997B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE24071A-2E8D-4823-B981-70A796A3C951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE24071A-2E8D-4823-B981-70A796A3C951}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE24071A-2E8D-4823-B981-70A796A3C951}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE24071A-2E8D-4823-B981-70A796A3C951}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE19F40-75D2-4A0D-A778-FCC342290D61}.Release|Any CPU.ActiveCfg = Release|Any CPU

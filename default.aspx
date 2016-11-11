@@ -10,35 +10,37 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="g-row">
-        <div class="g-10">
+    <!--<div class="g-row">--> <div class="row">
+        <!--<div class="g-10">--><div class="col-md-10">
     <div class="message">
         <asp:Literal ID="lbMess" runat="server"></asp:Literal>
     </div>
 <asp:LinkButton ID="btnToOldStyle" runat="server" OnClick="btnToOldStyle_Click" Visible="false">старый стиль главной страницы</asp:LinkButton>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="vLogin" runat="server">
-            <div class="center white bluefon padding5">
-                <h2 class="center white bluefon">На этом сайте</h2>
-                <p class="center">
-                    Можно самостоятельно оформить заказ на сантехнические изделия и оборудование
-                </p>
+            <!--Блок 1-->
+            <!--<div class="center white bluefon padding5">--><div class="box-1 box-grey">
+                <h3 class="text-thin">На этом сайте</h3>
+                <h4 class="text-blue text-thin">
+	Можно самостоятельно оформить заказ на сантехнические изделия и оборудование
+	</h4>
 
-                <p class="center">
-                    Это доступно только для зарегистрированных клиентов.<br />
+                <p >
+                    Это доступно только для зарегистрированных клиентов.
                     Обратитесь в компанию ООО &quot;УЦСК &quot;Сантехкомплект-Урал&quot;
-                    <br />
-                    к закрепленному за Вами менеджеру за получением кода доступа.<br />
+                    
+                    к закрепленному за Вами менеджеру за получением кода доступа.
                     либо по тел. (343) 270-04-04 (доб. 5297 )
                 </p>
                 <br />
-                <p class="bold center">Либо, Самостоятельно! заполните заявку:</p>
+                <h4 class="text-thin text-center h4-box-grey">Либо, Самостоятельно! заполните заявку:</h4>
                 <br />
-                <div style="padding: 40px; text-align: center;">
-                    <a href='../account/login.aspx?act=new' style="padding: 30px; font-size: 200%; font-weight: bold; background-color: #ED7A44; color: #FFF; text-decoration: underline;">ХОЧУ ПОЛУЧИТЬ ДОСТУП!</a>
-                </div>
+                
+                    <p class="text-center"><a class="btn btn-default btn-lg" href='../account/login.aspx?act=new'>Получить доступ</a></p>
+                
 
             </div>
+            <!--#Блок 1-->
             <br />
             <script type="text/javascript">
                 
@@ -60,39 +62,59 @@
                     });
                 }
             </script>
-                    <div class="padding5 orangefon white">
+            <!--Блок 2-->
+                    <!--<div class="padding5 orangefon white">--><div class="box-1 box-blue">
                     <div class="message">
                     <asp:Literal ID="lbMessageLogin" runat="server"></asp:Literal>
                     </div>
-                    <span>У МЕНЯ ЕСТЬ ДОСТУП</span>
-                    <div class="f-row">
-                    <label>логин (e-mail)</label>
-                    <div class="f-input">
-                    <asp:TextBox ID="txLogin" runat="server" MaxLength="150" CssClass="g-3" ClientIDMode="Static"></asp:TextBox>
-                    </div>
+                    <h3 class="text-thin">У меня есть доступ</h3>
+                    <div class="form-horizontal">
+                    <!--<div class="f-row">--><div class="form-group">
+                    <label class="col-sm-4 control-label">Логин (e-mail)</label>
+                    <!--<div class="f-input">--><div class="col-sm-6">
+                    <asp:TextBox ID="txLogin" runat="server" MaxLength="150" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                    </div></div>
                         <div id="divsmscode">
                            
                             <span>для доступа используйте пожалуйста пароль переданный Вам СМС-сообщением</span>
                            <a href="#" onclick="showSmsCode()">повторить отправку пароля</a>
                             </div>
                     <!-- f-input -->
-                    </div>
+                    
+
                     <!-- f-row -->
-                    <div class="f-row">
-                    <label>пароль</label>
-                    <div class="f-input">
-                    <asp:TextBox ID="txPwd" runat="server" TextMode="Password" MaxLength="150" CssClass="g-3"></asp:TextBox> <asp:LinkButton ID="lbtnRemember" runat="server" OnPreRender="lbtnRemember_PreRender" CssClass="white" OnClick="lbtnRemember_Click">напомнить пароль...</asp:LinkButton>
+                    <!--<div class="f-row">--><div class="form-group">
+                    <label class="col-sm-4 control-label">Пароль</label>
+                    <!--<div class="f-input">--><div class="col-sm-6">
+                    <asp:TextBox ID="txPwd" runat="server" TextMode="Password" MaxLength="150" CssClass="form-control"></asp:TextBox> 
                     </div>
                     </div>
-                    <div class="f-row ">
-                    <label></label>
-                    <asp:Button ID="btnLogin" runat="server" Text="вход" OnClick="btnLogin_Click" Width="75px" />
+                    
+                        <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-6">
+      
+                        <label>
+                        <asp:LinkButton ID="lbtnRemember" runat="server" OnPreRender="lbtnRemember_PreRender" CssClass="" OnClick="lbtnRemember_Click">Забыли пароль?</asp:LinkButton>
+                    </label>
+      
+                      </div>
+                    </div>
+
+                    <!--<div class="f-row">--><div class="form-group">
+                    
+                        <div class="col-sm-offset-4 col-sm-6">
+                            <asp:Button ID="btnLogin" runat="server" Text="Войти" OnClick="btnLogin_Click" CssClass="btn btn-default" />
+     
+                    </div>
+
+                    
                     
                     </div>
-
+                        </div>
 
 
                     </div>
+            <!--#Блок 2-->
                     <br />
                     <br />
                     <asp:Panel ID="pnlScreens" runat="server">
@@ -403,7 +425,8 @@
         </FooterTemplate>
     </asp:Repeater>
 </div>
-        <div class="g-2">
+        <!--Блок Акции-->
+        <!--<div class="g-2">--><div class="col-md-2">
             
                 <asp:Repeater ID="rpPrices" runat="server">
                     <HeaderTemplate><div class="border">
@@ -412,12 +435,12 @@
 
                     <FooterTemplate></div></FooterTemplate>
                 </asp:Repeater> 
-            <div>
+            <div class="box-sale">
             
                 <asp:Repeater ID="rpAccs" runat="server">
-        <HeaderTemplate><h4>Акции</h4></HeaderTemplate>
+        <HeaderTemplate><h3>Акции</h3></HeaderTemplate>
         <ItemTemplate>
-            <div class="ipad">
+            <!--<div class="ipad">--><div>
                 <img src="../img.ashx?act=acc&id=<%#Eval("ID") %>" style="width:96px"/>
                 <br/>                <a href="../good/sales.aspx?id=<%#Eval("ID") %>"><%#Eval("Name") %></a>
                 <div>с <%#cDate.cToString(Eval("startdate")) %> по <%#cDate.cToString(Eval("Finishdate")) %></div>
@@ -426,6 +449,7 @@
     </asp:Repeater>
             </div>
             </div>
+        <!--#Блок Акции-->
             
            
 

@@ -25,6 +25,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ensoCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ensoCore.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.Excel">
       <HintPath>..\..\..\Visual Studio 2010\Projects\exportToExcel\bin\Debug\Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -55,6 +60,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\Загрузки\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="selforderlib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\selforderlib.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Management" />
@@ -98,6 +107,8 @@
     <Content Include="common\help.htm" />
     <Content Include="admin\admin.Master" />
     <Content Include="account\acc.ashx" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\style.css" />
     <Content Include="default.aspx" />
     <None Include="custom.less" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -109,7 +120,9 @@
     <Content Include="error.aspx" />
     <Content Include="error.htm" />
     <Content Include="css\framework.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\roboto.css" />
     <Content Include="good\card.aspx" />
     <Content Include="good\good.js" />
     <Content Include="good\goodlist.css" />
@@ -378,6 +391,7 @@
     <Content Include="jscripts\tiny_mce\utils\mctabs.js" />
     <Content Include="jscripts\tiny_mce\utils\validate.js" />
     <Content Include="jscripts\tiny_mce_init.js" />
+    <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\bubble-tooltip.js" />
     <Content Include="js\chosen-sprite%402x.png" />
@@ -1062,14 +1076,12 @@
     </Compile>
     <Compile Include="UC\TabCtrl.ascx.cs">
       <DependentUpon>TabCtrl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UC\TabCtrl.ascx.designer.cs">
       <DependentUpon>TabCtrl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UC\ucDateInput.ascx.cs">
       <DependentUpon>ucDateInput.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UC\ucDateInput.ascx.designer.cs">
       <DependentUpon>ucDateInput.ascx</DependentUpon>
@@ -1128,20 +1140,81 @@
     <Content Include="good\acc.ashx" />
     <Content Include="img.ashx" />
     <Content Include="good\ajaxg.ashx" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\roboto-black.eot" />
+    <Content Include="fonts\roboto-black.ttf" />
+    <Content Include="fonts\roboto-black.woff" />
+    <Content Include="fonts\roboto-blackitalic.eot" />
+    <Content Include="fonts\roboto-blackitalic.ttf" />
+    <Content Include="fonts\roboto-blackitalic.woff" />
+    <Content Include="fonts\roboto-bold.eot" />
+    <Content Include="fonts\roboto-bold.ttf" />
+    <Content Include="fonts\roboto-bold.woff" />
+    <Content Include="fonts\roboto-boldcondensed.eot" />
+    <Content Include="fonts\roboto-boldcondensed.ttf" />
+    <Content Include="fonts\roboto-boldcondensed.woff" />
+    <Content Include="fonts\roboto-boldcondenseditalic.eot" />
+    <Content Include="fonts\roboto-boldcondenseditalic.ttf" />
+    <Content Include="fonts\roboto-boldcondenseditalic.woff" />
+    <Content Include="fonts\roboto-bolditalic.eot" />
+    <Content Include="fonts\roboto-bolditalic.ttf" />
+    <Content Include="fonts\roboto-bolditalic.woff" />
+    <Content Include="fonts\roboto-condensed.eot" />
+    <Content Include="fonts\roboto-condensed.ttf" />
+    <Content Include="fonts\roboto-condensed.woff" />
+    <Content Include="fonts\roboto-condenseditalic.eot" />
+    <Content Include="fonts\roboto-condenseditalic.ttf" />
+    <Content Include="fonts\roboto-condenseditalic.woff" />
+    <Content Include="fonts\roboto-italic.eot" />
+    <Content Include="fonts\roboto-italic.ttf" />
+    <Content Include="fonts\roboto-italic.woff" />
+    <Content Include="fonts\roboto-light.eot" />
+    <Content Include="fonts\roboto-light.ttf" />
+    <Content Include="fonts\roboto-light.woff" />
+    <Content Include="fonts\roboto-lightitalic.eot" />
+    <Content Include="fonts\roboto-lightitalic.ttf" />
+    <Content Include="fonts\roboto-lightitalic.woff" />
+    <Content Include="fonts\roboto-medium.eot" />
+    <Content Include="fonts\roboto-medium.ttf" />
+    <Content Include="fonts\roboto-medium.woff" />
+    <Content Include="fonts\roboto-mediumitalic.eot" />
+    <Content Include="fonts\roboto-mediumitalic.ttf" />
+    <Content Include="fonts\roboto-mediumitalic.woff" />
+    <Content Include="fonts\roboto-regular.eot" />
+    <Content Include="fonts\roboto-regular.ttf" />
+    <Content Include="fonts\roboto-regular.woff" />
+    <Content Include="fonts\roboto-thin.eot" />
+    <Content Include="fonts\roboto-thin.ttf" />
+    <Content Include="fonts\roboto-thin.woff" />
+    <Content Include="fonts\roboto-thinitalic.eot" />
+    <Content Include="fonts\roboto-thinitalic.ttf" />
+    <Content Include="fonts\roboto-thinitalic.woff" />
+    <Content Include="fonts\robotocondensed-light.eot" />
+    <Content Include="fonts\robotocondensed-light.ttf" />
+    <Content Include="fonts\robotocondensed-light.woff" />
+    <Content Include="fonts\robotocondensed-lightitalic.eot" />
+    <Content Include="fonts\robotocondensed-lightitalic.ttf" />
+    <Content Include="fonts\robotocondensed-lightitalic.woff" />
+    <Content Include="fonts\robotoslab-bold.eot" />
+    <Content Include="fonts\robotoslab-bold.ttf" />
+    <Content Include="fonts\robotoslab-bold.woff" />
+    <Content Include="fonts\robotoslab-light.eot" />
+    <Content Include="fonts\robotoslab-light.ttf" />
+    <Content Include="fonts\robotoslab-light.woff" />
+    <Content Include="fonts\robotoslab-regular.eot" />
+    <Content Include="fonts\robotoslab-regular.ttf" />
+    <Content Include="fonts\robotoslab-regular.woff" />
+    <Content Include="fonts\robotoslab-thin.eot" />
+    <Content Include="fonts\robotoslab-thin.ttf" />
+    <Content Include="fonts\robotoslab-thin.woff" />
     <None Include="Properties\PublishProfiles\agava-santechportal.ru.pubxml" />
     <None Include="Properties\PublishProfiles\isantur-agava.pubxml" />
     <None Include="Properties\PublishProfiles\Профиль1.pubxml" />
     <None Include="Properties\PublishProfiles\Профиль2.pubxml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ensoCore\ensoCore.csproj">
-      <Project>{53c98ba9-2d71-4d98-b622-652cd946cc54}</Project>
-      <Name>ensoCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\selforderlib\selforderlib.csproj">
-      <Project>{fe24071a-2e8d-4823-b981-70a796a3c951}</Project>
-      <Name>selforderlib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

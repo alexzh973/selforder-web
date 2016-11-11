@@ -55,7 +55,7 @@ namespace wstcp
             set
             {
                 leftplace.Visible = value;
-                __content.CssClass = value ? ((VisibleRightPanel) ? "g-6" : "g-9") : ((VisibleRightPanel) ? "g-9" : "g-12");
+                __content.CssClass = value ? ((VisibleRightPanel) ? "col-md-6" : "col-md-9") : ((VisibleRightPanel) ? "col-md-9" : "col-md-12");
             }
             get { return leftplace.Visible; }
         }
@@ -64,14 +64,14 @@ namespace wstcp
             set
             {
                 rightplace.Visible = value;
-                __content.CssClass = (value) ? ((VisibleLeftPanel) ? "g-6" : "g-9") : ((VisibleLeftPanel) ? "g-9" : "g-12");
+                __content.CssClass = (value) ? ((VisibleLeftPanel) ? "col-md-6" : "col-md-9") : ((VisibleLeftPanel) ? "col-md-9" : "col-md-12");
             }
             get { return rightplace.Visible; }
         }
         public string SelectedMenu
         {
             set { ViewState["menupunct"] = value; }
-            get { if ("" + ViewState["menupunct"] == "")SelectedMenu = "home"; return "" + ViewState["menupunct"]; }
+            get { if ("" + ViewState["menupunct"] == "") SelectedMenu = "home"; return "" + ViewState["menupunct"]; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -190,12 +190,12 @@ namespace wstcp
                 iam = IamServices.GetIam(Session.SessionID);
             blockMainMenu.Text = "";
             blockAdminMenu.Text = "";
-            blockMainMenu.Text += "<ul >";
+            blockMainMenu.Text += "<ul class='nav navbar-nav'>";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "home") ? "selected" : "") + "'><a href='../default.aspx' >Главная</a></li>";
             if (iam.ID >= 100000)
-                blockMainMenu.Text += "<li class='bold white " + ((SelectedMenu == "order") ? "selected" : "") + "'><a href='../order/orderdefault.aspx' >Заявка " + ((iam.CurOrder != null && iam.CurOrder.Items.Count > 0) ? "<span title='Есть несохраненная заявка' class='red bold'>*</a>" : "") + "</a></li>";
+                blockMainMenu.Text += "<li class='  " + ((SelectedMenu == "order") ? "selected" : "") + "'><a href='../order/orderdefault.aspx' >Заявка " + ((iam.CurOrder != null && iam.CurOrder.Items.Count > 0) ? "<span title='Есть несохраненная заявка' class='red bold'>*</a>" : "") + "</a></li>";
             if (iam.ID >= 100000 && (iam.IsAdmin || iam.IsTA || iam.IsSaller))
-                blockMainMenu.Text += "<li class='bold white " + ((SelectedMenu == "incash") ? "selected" : "") + "'><a href='../good/list.aspx'>Тов. ост. минихолдинга</a></li>";
+                blockMainMenu.Text += "<li class='  " + ((SelectedMenu == "incash") ? "selected" : "") + "'><a href='../good/list.aspx'>Тов. ост. минихолдинга</a></li>";
             //    blockMainMenu.Text += "<li class='" + ((SelectedMenu == "msg") ? "selected" : "") + "'><a href='../msg.aspx'>Отправить сообщение</a></li>";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "sales") ? "selected" : "") + "'><a href='../good/sales.aspx'>Акции</a></li>";
             blockMainMenu.Text += "<li class='" + ((SelectedMenu == "lk") ? "selected" : "") + "'><a href='../account/lk.aspx'>Личный кабинет</a></li>";

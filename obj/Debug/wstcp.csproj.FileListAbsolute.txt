@@ -44,3 +44,16 @@ D:\MyDocs\Мои Документы\Visual Studio 2012\Projects\wstcp\obj\Debug\
 D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.Excel.dll
 D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.Microsoft.Office.Core.dll
 D:\Мои Документы\Visual Studio 2012\Projects\wstcp\bin\Interop.VBIDE.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\order\orderajax.ashx
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\order\orderajax.ashx.cs
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\wstcp.dll.config
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\wstcp.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\wstcp.pdb
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\Interop.Microsoft.Office.Core.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\Interop.VBIDE.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\stdole.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\ensoCore.pdb
+C:\01_разработка\СантехПортал\11111\selforder-web\bin\selforderlib.pdb
+C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
+C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.dll
+C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.pdb
