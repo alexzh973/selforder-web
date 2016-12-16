@@ -108,6 +108,7 @@
     <Content Include="admin\admin.Master" />
     <Content Include="account\acc.ashx" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\font-awesome.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />
     <None Include="custom.less" />
@@ -1076,12 +1077,14 @@
     </Compile>
     <Compile Include="UC\TabCtrl.ascx.cs">
       <DependentUpon>TabCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UC\TabCtrl.ascx.designer.cs">
       <DependentUpon>TabCtrl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UC\ucDateInput.ascx.cs">
       <DependentUpon>ucDateInput.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UC\ucDateInput.ascx.designer.cs">
       <DependentUpon>ucDateInput.ascx</DependentUpon>

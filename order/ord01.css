@@ -136,22 +136,23 @@ img.arrowtolist {
 }
 
 .sourcelist-active {
-    background-image: url("../simg/16/tick.png");
+    /*background-image: url("../simg/16/tick.png");
     padding-left: 20px !important;
     background-repeat: no-repeat;
     font-weight: bold !important;
     text-decoration: none !important;
     color: #0057A8;
     margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 8px;*/
 }
 
 .sourcelist-passive {
+    /*
     font-weight: normal !important;
     text-decoration: underline !important;
     color: #636262;
     margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 8px;*/
 }
 
 .clear-filter {

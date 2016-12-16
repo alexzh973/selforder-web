@@ -46,7 +46,7 @@ namespace wstcp
                         }
                         else
                         {
-                            litInfo.Text = "<div class='message center bold'><a href='../order/orderdefault.aspx'>Перейти к подбору новой заявки</a></div>";
+                            litInfo.Text = "<div class='new-order-btn-block'><a class='new-order-btn title-new-order-btn' href='../order/orderdefault.aspx'>Перейти к подбору новой заявки</a></div>";
                         }
                         show_nearestTeo();
 
@@ -587,15 +587,15 @@ namespace wstcp
 
         private string setbtns(string orderId, string act, string newstate, string pic, string btnword, string title = "", string css = "")
         {
-            string btn = "<a href=\"#\" class='microbutton micro {css}' title='{btn}' onclick=\"javascript: if (confirm('Подтверждаете {btn}?')) {setnewstate('{orderid}','{newstate}');}else return false;\"><img src='../simg/16/{pic}' />{title}</a>";
+            string btn = "<a href=\"#\" class='microbutton micro {css}' title='{btn}' onclick=\"javascript: if (confirm('Подтверждаете {btn}?')) {setnewstate('{orderid}','{newstate}');}else return false;\"><i class='fa fa-times icon-act-table' aria-hidden='true'></i>{title}</a>";
             return btn.Replace("{orderid}", orderId).Replace("{newstate}", newstate).Replace("{pic}", pic).Replace("{btn}", btnword).Replace("{act}", act).Replace("{title}", title).Replace("{css}", css);
         }
         private string get_qbuttons(string orderId, string s)
         {
 
             string btnDel = "&nbsp;" + setbtns(orderId, "sns", "X", "delete.png", "отменить/в архив");
-            string btnCopy = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=copy\" class='microbutton micro' title='Скопировать/повторить ' ><img src='../simg/16/page_copy.png' /></a>";
-            string btnEdit = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=edit\" class='microbutton micro' title='Изменить' ><img src='../simg/16/document-edit.png' /></a>";
+            string btnCopy = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=copy\" class='microbutton micro' title='Скопировать/повторить ' ><i class='fa fa-files-o icon-act-table' aria-hidden='true'></i></a>";
+            string btnEdit = "<a href=\"../order/orderdefault.aspx?id=" + orderId + "&act=edit\" class='microbutton micro' title='Изменить' ><i class='fa fa-pencil icon-act-table' aria-hidden='true'></i></a>";
             string btn = btnEdit + btnCopy + btnDel;
 
             return btn;

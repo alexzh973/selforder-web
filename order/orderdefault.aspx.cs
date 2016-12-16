@@ -193,8 +193,8 @@ namespace wstcp
 
         private void set_list_regime()
         {
-            const string active = "sourcelist-active";
-            const string pass = "sourcelist-passive";
+            const string active = "btn btn-default btn-sm active";
+            const string pass = "btn btn-default btn-sm sourcelist-passive";
             switch (iam.CF_SourceNomen)
             {
                 case "spec":

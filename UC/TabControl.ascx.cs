@@ -124,8 +124,8 @@ public List<string> TabCssPrefix
 
         protected void _Container_PreRender(object sender, System.EventArgs e)
         {
-            string divider = "<td class='tabdivider'>&nbsp;</td>";
-            _punctHead = "<table id='tabctrl_" + this.ClientID + "'  cellpadding='3' cellspacing='0' width='100%' class='tabcontrol'><tr>";
+            string divider = "";
+            _punctHead = "<ul id='tabctrl_" + this.ClientID + "'  class='nav nav-tabs tabs-block-order' role='tablist'><li>";
             string sema = "";
 
             if (_selectedTabIndex > _tabTitles.Count - 1)
@@ -136,11 +136,11 @@ public List<string> TabCssPrefix
                 sema = _punctMark[i].ToString();
                 if (this.AutoPostBack)
                 {
-                    _punctHead += ((_punctHead.Length > 0) ? divider : "") + "<td style='width:" + wdth + "%;' id='tab" + this.ClientID + i + "' class='" + ((i == _selectedTabIndex) ? "tabactive" : "tabpassive") + " " + _tabCssPrefix[i] + " mazz" + _tabCssPrefix[i] + "afakka' " + ((i == _selectedTabIndex) ? "" : " onclick=\"setActPunct(" + _tabTitles.Count + ", " + i + ",'" + this.ClientID + "','" + _pnlIDs[i] + "')\"") + " title='" + _tabTooltips[i].ToString() + "' nowrap><span id='" + this.ClientID + "tp" + i + "'>" + _tabTitles[i].ToString() + "</span>" + ((sema != "") ? "&nbsp;<img src='../img/sema" + sema + ".gif'>" : "") + "</td>\n";
+                    _punctHead += ((_punctHead.Length > 0) ? divider : "") + "<li id='tab" + this.ClientID + i + "' class='" + ((i == _selectedTabIndex) ? "active" : "tabpassive") + " " + _tabCssPrefix[i] + " mazz" + _tabCssPrefix[i] + "afakka' " + ((i == _selectedTabIndex) ? "" : " onclick=\"setActPunct(" + _tabTitles.Count + ", " + i + ",'" + this.ClientID + "','" + _pnlIDs[i] + "')\"") + " title='" + _tabTooltips[i].ToString() + "' nowrap><a href='#' id='" + this.ClientID + "tp" + i + "'>" + _tabTitles[i].ToString() + "</a>" + ((sema != "") ? "&nbsp;<img src='../img/sema" + sema + ".gif'>" : "") + "</li>\n";
                 }
                 else
                 {
-                    _punctHead += ((_punctHead.Length > 0) ? divider : "") + "<td style='width:" + wdth + "%;'  id='tab" + this.ClientID + i + "' class='" + ((i == _selectedTabIndex) ? "tabactive" : "tabpassive") + " " + _tabCssPrefix[i] + "' onclick=\"setActPunct(" + _tabTitles.Count + ", " + i + ",'" + this.ClientID + "','"+_pnlIDs[i]+"')\"  title='" + _tabTooltips[i].ToString() + "' nowrap>" + _tabTitles[i].ToString() + ((sema != "") ? "&nbsp;<img src='../img/sema" + sema + ".gif'>" : "") + "</td>\n";
+                    _punctHead += ((_punctHead.Length > 0) ? divider : "") + "<li id='tab" + this.ClientID + i + "' class='" + ((i == _selectedTabIndex) ? "active" : "tabpassive") + " " + _tabCssPrefix[i] + "' onclick=\"setActPunct(" + _tabTitles.Count + ", " + i + ",'" + this.ClientID + "','" + _pnlIDs[i] + "')\"  title='" + _tabTooltips[i].ToString() + "' nowrap>" + _tabTitles[i].ToString() + ((sema != "") ? "&nbsp;<img src='../img/sema" + sema + ".gif'>" : "") + "</li>\n";
                 }
                // ((System.Web.UI.Control)_content[i]).ID = "pnl" + this.ClientID + i;
                 if (_content[i].GetType() == typeof(Panel))
@@ -152,15 +152,15 @@ public List<string> TabCssPrefix
                     ((System.Web.UI.Control)_content[i]).Visible = (i == _selectedTabIndex) ? true : false;
                 }
             }
-            _punctHead += "<td class='tabdivider tabspace'>&nbsp;</td></tr></table>";
+            _punctHead += "</li></ul>";
 
             lit.Text = _punctHead;
 
             string script = "<script  type='text/javascript'>" +
                             "function setActPunct(qty, curr_ind, megaid,pnlId){ ";
             if (!_autoPostBack)
-                script += "	for(i=0;i<qty;i++){ if(i==curr_ind){$('#tab' + megaid + '' + i).removeClass('tabpassive');$('#tab' + megaid + '' + i).addClass('tabactive');}else{$('#tab' + megaid + '' + i).removeClass('tabactive');$('#tab' + megaid + '' + i).addClass('tabpassive');} " +
-                          "			$('#ytab' + megaid + '' + i).attr('class', ((i == curr_ind) ? 'tabactive' : 'tabpassive'));" +
+                script += "	for(i=0;i<qty;i++){ if(i==curr_ind){$('#tab' + megaid + '' + i).removeClass('tabpassive');$('#tab' + megaid + '' + i).addClass('active');}else{$('#tab' + megaid + '' + i).removeClass('active');$('#tab' + megaid + '' + i).addClass('tabpassive');} " +
+                          "			$('#ytab' + megaid + '' + i).attr('class', ((i == curr_ind) ? 'active' : 'tabpassive'));" +
                           "	}\n" +
                           "$('.visi').attr('class','hidi');$('#' + pnlId).attr('class','visi');\n";
 

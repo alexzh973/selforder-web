@@ -36,7 +36,7 @@
                 <h4 class="text-thin text-center h4-box-grey">Либо, Самостоятельно! заполните заявку:</h4>
                 <br />
                 
-                    <p class="text-center"><a class="btn btn-default btn-lg" href='../account/login.aspx?act=new'>Получить доступ</a></p>
+                    <p class="text-center"><a class="btn btn-primary" href='../account/login.aspx?act=new'>Получить доступ</a></p>
                 
 
             </div>
@@ -116,12 +116,12 @@
                     </div>
             <!--#Блок 2-->
                     <br />
-                    <br />
+                    
                     <asp:Panel ID="pnlScreens" runat="server">
 
 
 
-                <h2 class="center white bluefon">Cценарий использования</h2>
+                <h3 class="title-h2-bg-o-up">Cценарий использования</h3>
 
 
 
@@ -252,39 +252,55 @@
                 <FooterTemplate></table></FooterTemplate>
             </asp:Repeater>
 
-            <br />
-  <div>
-                Найти заявку по номеру, коду или товару:
-                    <asp:TextBox ID="txSearch" runat="server"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="f-bu f-bu-default slowfunc" Text="найти" />
-  </div>   <br/>       
-            <asp:HiddenField ID="hdRefresh" ClientIDMode="Static" runat="server" />
             
-            <ul class="f-nav f-nav-tabs" style="font-size: 100%; font-weight: bold;">
-               <li id="tab0" runat="server">
-                    <asp:LinkButton CssClass="slowfunc small glyphicon glyphicon-time" ID="lbtnShowZ" runat="server" OnClick="lbtnShowZ_Click" ToolTip="Заявки в процессе обработки/согласования в Сантехкомплекте">
+
+                    <!--Блок Поиск-->
+  <div class="search-order-block">
+      <div class="form-horizontal">
+          <div class="col-md-6 col-sm-6 col-xs-6 no-padding-left">
+                <!--Найти заявку по номеру, коду или товару?:-->
+                    <asp:TextBox ID="txSearch" placeholder="Найти заявку по номеру, коду или товару" CssClass="form-control" runat="server"></asp:TextBox>
+                   </div> 
+                    <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="btn btn-primary slowfunc" Text="Найти" />
+  
+          </div>
+      </div> 
+                    <!--#Блок Поиск-->
+                    
+                            
+            <asp:HiddenField ID="hdRefresh" ClientIDMode="Static" runat="server" />
+  <!--Табы-->        
+            <ul class="nav nav-tabs tabs-block-default">
+               
+                <li id="tab0" runat="server">
+                    <asp:LinkButton CssClass="slowfunc" ID="lbtnShowZ" runat="server" OnClick="lbtnShowZ_Click" ToolTip="Заявки в процессе обработки/согласования в Сантехкомплекте">
                         
-                        В процессе обработки <asp:Label ID="qZ" CssClass="ipadmini" Visible="False" runat="server" Text=""></asp:Label>
-                        <br/>в Сантехкомплекте 
+                        В процессе обработки
+                        
+                            <asp:Label ID="qZ" CssClass="amount-order" Visible="False" runat="server" Text=""></asp:Label>
                     </asp:LinkButton>
 
                 </li> 
-                <li id="tab1" runat="server" class="active" style="line-height: 22px !important;">
-                    <asp:LinkButton CssClass="slowfunc small" ID="lbtnShowU" runat="server" OnClick="lbtnShowU_Click" ToolTip="Заявки, требующие Вашего решения.">
+
+                <li id="tab1" runat="server" class="active">
+                    <asp:LinkButton CssClass="slowfunc" ID="lbtnShowU" runat="server" OnClick="lbtnShowU_Click" ToolTip="Заявки, требующие Вашего решения.">
                         
-                        Ожидание решения <asp:Label ID="qU" CssClass="ipadmini" Visible="False" runat="server" Text=""></asp:Label>
+                        Ожидание решения 
                         <br/> клиента
+                        <asp:Label ID="qU" CssClass="amount-order" Visible="False" runat="server" Text=""></asp:Label>
                     </asp:LinkButton>
 
                 </li>
                 
                 
 
-                <li id="tab2" runat="server" style="line-height: 22px !important;">
-                    <asp:LinkButton ID="lbtnShowR" CssClass="slowfunc small" runat="server" OnClick="lbtnShowR_Click" ToolTip="Заявки на комплектации /частично или полностью готовые к отгрузке ">
+                <li id="tab2" runat="server">
+                    <asp:LinkButton ID="lbtnShowR" CssClass="slowfunc" runat="server" OnClick="lbtnShowR_Click" ToolTip="Заявки на комплектации /частично или полностью готовые к отгрузке ">
                         
-                        На комплектации <asp:Label ID="qR" CssClass="ipadmini" Visible="False" runat="server" Text=""></asp:Label>
+                        На комплектации 
                         <br/>и готовые к отгрузке
+
+                        <asp:Label ID="qR" CssClass="amount-order" Visible="False" runat="server" Text=""></asp:Label>
                     </asp:LinkButton>
 
                 </li>
@@ -295,22 +311,20 @@
                         Отмененные 
                         <br/>&nbsp;
                     </asp:LinkButton></li>--%>
+                
                 <li id="tab4" runat="server">
-                    <asp:LinkButton ID="lbtnShowF" CssClass="slowfunc small" runat="server" OnClick="lbtnShowF_Click">Архив заявок
-                        <br/>&nbsp;
+                    <asp:LinkButton ID="lbtnShowF" CssClass="slowfunc" runat="server" OnClick="lbtnShowF_Click">Архив заявок
+                        
 
                     </asp:LinkButton></li>
                 
                 <li id="tab5" runat="server">
-                    <asp:LinkButton ID="lbtnShowPrice" CssClass="slowfunc small" runat="server" OnClick="lbtnShowPrice_Click">Прайс-листы
-                        <br/>&nbsp;
-
+                    <asp:LinkButton ID="lbtnShowPrice" CssClass="slowfunc" runat="server" OnClick="lbtnShowPrice_Click">Прайс-листы
+                       
                     </asp:LinkButton></li>
                 
-
-                
             </ul>
-
+<!--#Табы-->
             
 
             <asp:MultiView ID="mvOrders" runat="server">
@@ -332,17 +346,21 @@
                     <uc1:ucOrdersTable ID="ucOrdersTable_F" runat="server" TitleList="Выполненные заявки" />
                 </asp:View>
                 <asp:View ID="vPrices" runat="server">
-                    <asp:DataGrid ID="dgQuery" runat="server" AutoGenerateColumns="False"
+                   
+                    <!--Таблица--> 
+                    <asp:DataGrid ID="dgQuery"  runat="server" AutoGenerateColumns="False"
             CellPadding="6"
             OnItemDataBound="dgQuery_ItemDataBound"
             AllowPaging="True"
             OnPageIndexChanged="dgQuery_PageIndexChanged"
             ForeColor="#333333"
             GridLines="None"
+            CssClass="table table-striped table-tabs-default"
             CellSpacing="-1"
             Width="100%"
-            OnItemCreated="dgQuery_ItemCreated"
+            OnItemCreated="dgQuery_ItemCreated" 
             >
+                        
             <Columns>
                 <asp:TemplateColumn Visible="false">
                     <HeaderStyle Width="10px" />
@@ -356,24 +374,24 @@
 
                 </asp:BoundColumn>
                 <asp:BoundColumn DataField="Name" HeaderText="Заявка"></asp:BoundColumn>
-                <asp:TemplateColumn ItemStyle-CssClass="small"  HeaderText="Подробности">
-                    <ItemStyle Width="200px" CssClass="small" />
+                <asp:TemplateColumn   HeaderText="Подробности">
+                    <ItemStyle Width="200px"  />
 
                 </asp:TemplateColumn>
                 
-                <asp:TemplateColumn HeaderText="действия">
-                    <ItemStyle Width="80px" />
+                <asp:TemplateColumn HeaderText="Действия">
+                    <ItemStyle CssClass="icons-act" Width="80px" />
 
                 </asp:TemplateColumn>
 
 
                 <asp:TemplateColumn></asp:TemplateColumn>
-
-
+                
             </Columns>
+                        
             <EditItemStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle  Font-Bold="True"  />
             <ItemStyle CssClass="selectablehover" BackColor="#F7F6F3" ForeColor="#333333" />
             <AlternatingItemStyle CssClass="selectablehover" BackColor="White" ForeColor="#284775" />
 
@@ -426,7 +444,7 @@
     </asp:Repeater>
 </div>
         <!--Блок Акции-->
-        <!--<div class="g-2">--><div class="col-md-2">
+        <!--<div class="g-2">--><div class="col-md-2 no-padding-right">
             
                 <asp:Repeater ID="rpPrices" runat="server">
                     <HeaderTemplate><div class="border">
@@ -438,13 +456,17 @@
             <div class="box-sale">
             
                 <asp:Repeater ID="rpAccs" runat="server">
-        <HeaderTemplate><h3>Акции</h3></HeaderTemplate>
+        <HeaderTemplate><div class="head-sale-block"><h3>Акции</h3></div></HeaderTemplate>
         <ItemTemplate>
-            <!--<div class="ipad">--><div>
+            <!--<div class="ipad">-->
+            <div class="sale-block">
+                
+                <div class="title-sale"><a href="../good/sales.aspx?id=<%#Eval("ID") %>"><%#Eval("Name") %></a></div>
+                <div class="date-sale"><%#cDate.cToString(Eval("startdate")) %> - <%#cDate.cToString(Eval("Finishdate")) %></div>
                 <img src="../img.ashx?act=acc&id=<%#Eval("ID") %>" style="width:96px"/>
-                <br/>                <a href="../good/sales.aspx?id=<%#Eval("ID") %>"><%#Eval("Name") %></a>
-                <div>с <%#cDate.cToString(Eval("startdate")) %> по <%#cDate.cToString(Eval("Finishdate")) %></div>
-                      </div>
+                
+             
+            </div>
         </ItemTemplate>
     </asp:Repeater>
             </div>

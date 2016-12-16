@@ -121,16 +121,16 @@ namespace wstcp.order
                 if (iam.Owner.ShowInvDiscount)
                 {
                     decimal disc = cNum.cToDecimal(r["discount"]);
-                    e.Item.Cells[3].Text += "<div class='blue small'>предоставлена скидка <span class='bold'>" + disc + "%</span></div>";
+                    e.Item.Cells[3].Text += "<div class=''>предоставлена скидка <span class='bold'>" + disc + "%</span></div>";
                 }
 
                 if (!is_arch)
                 {
-                    e.Item.Cells[3].Text += "<div class='small'>Из " + r["qtyitemneed"] + " позиций можно получить " + r["qtyitemavail"] + "</div>";
+                    e.Item.Cells[3].Text += "<div>Из " + r["qtyitemneed"] + " позиций можно получить " + r["qtyitemavail"] + "</div>";
                 }
-                e.Item.Cells[3].Text += "<div class='right'><a href='../order/detail.aspx?id="+id+"'>детали...</a></div>";
+                e.Item.Cells[3].Text += "<div class='left'><a href='../order/detail.aspx?id="+id+"'>Подробнее</a></div>";
 
-                string invoice = (is_arch || (""+r["invoice"]).Length<7) ? "" : "<a href=\"../downloadfile.ashx?act=invoice&id=" + id + "&sid=" + iam.SessionID + "\" title=' получить счет на оплату'><img width='48px' height='48px' src='../simg/icoinv.png' /></a>";
+                string invoice = (is_arch || (""+r["invoice"]).Length<7) ? "" : "<a href=\"../downloadfile.ashx?act=invoice&id=" + id + "&sid=" + iam.SessionID + "\" title=' получить счет на оплату'><i class='fa fa-file-text-o icon-act-table' aria-hidden='true'></i></a>";
 
                 bool avalibleGet = !is_arch & (cNum.cToInt(r["qtyitemneed"]) == cNum.cToInt(r["qtyitemavailall"]));
 
@@ -181,9 +181,9 @@ namespace wstcp.order
             string btn = "";
             string btn_del = "";//"&nbsp;" + setbtns(rec.ID, "sns", "X", "delete.png", "отменить/в архив");
 
-            string btn_copy = "<a href=\"../order/cart.aspx?id=" + id + "&act=copy\" class='microbutton micro' title='Скопировать/повторить ' ><img src='../simg/16/page_copy.png' /></a>";
-            string btn_edit = "<a href=\"../order/cart.aspx?id=" + id + "&act=edit\" class='microbutton micro' title='Изменить' ><img src='../simg/16/document-edit.png' /></a>";
-            string btn_lock = "<a href=\"#\" title='#tooltip#'><img src='../simg/16/lock_c.png' alt='c' /></a>";
+            string btn_copy = "<a href=\"../order/cart.aspx?id=" + id + "&act=copy\" class='microbutton micro' title='Скопировать/повторить' ><i class='fa fa-files-o icon-act-table' aria-hidden='true'></i></a>";
+            string btn_edit = "<a href=\"../order/cart.aspx?id=" + id + "&act=edit\" class='microbutton micro' title='Изменить' ><i class='fa fa-pencil icon-act-table' aria-hidden='true'></i></a>";
+            string btn_lock = "<a href=\"#\" title='#tooltip#'><i class='fa fa-lock icon-act-table' aria-hidden='true'></i></a>";
             switch (state.ToUpper())
             {
                 case "":

@@ -57,3 +57,15 @@ C:\01_разработка\СантехПортал\11111\selforder-web\bin\self
 C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
 C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.dll
 C:\01_разработка\СантехПортал\11111\selforder-web\obj\Debug\wstcp.pdb
+C:\Разработка\selforder-web\bin\order\orderajax.ashx
+C:\Разработка\selforder-web\bin\order\orderajax.ashx.cs
+C:\Разработка\selforder-web\bin\wstcp.dll.config
+C:\Разработка\selforder-web\bin\wstcp.dll
+C:\Разработка\selforder-web\bin\wstcp.pdb
+C:\Разработка\selforder-web\bin\Interop.Microsoft.Office.Core.dll
+C:\Разработка\selforder-web\bin\Interop.VBIDE.dll
+C:\Разработка\selforder-web\bin\ensoCore.pdb
+C:\Разработка\selforder-web\bin\selforderlib.pdb
+C:\Разработка\selforder-web\obj\Debug\wstcp.csprojResolveAssemblyReference.cache
+C:\Разработка\selforder-web\obj\Debug\wstcp.dll
+C:\Разработка\selforder-web\obj\Debug\wstcp.pdb

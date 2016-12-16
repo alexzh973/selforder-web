@@ -152,35 +152,69 @@
                     <asp:Literal ID="lbMessage" runat="server"></asp:Literal>
                 </div>
                 <uc1:TabControl ID="TabControl1" runat="server" />
-                <div style="padding: 5px;" class="tabcontrol">
-                    <div class="floatRight">
-                        <div id="pnlSourceSelect" runat="server" visible="true" style="padding-bottom: 10px">
-                            <strong>Источник списка номенклатуры </strong>: 
-        <asp:LinkButton ID="lnkJust" CommandArgument="just" runat="server" ClientIDMode="Static" CssClass="" OnClick="lnkSelectREG_Click">Весь каталог</asp:LinkButton>
-                            <asp:LinkButton ID="lnkMyFavor" CssClass="" ClientIDMode="Static" OnClick="lnkSelectREG_Click" CommandArgument="my" runat="server">Из истории моих заказов</asp:LinkButton>
-                            <asp:LinkButton CommandArgument="spec" CssClass="" ClientIDMode="Static" ID="lnkSpecial" OnClick="lnkSelectREG_Click" runat="server">Распродажа!!!</asp:LinkButton>
-                            &nbsp;<a href="../good/sales.aspx" class="bold">Акции!!!</a>
-                            &nbsp;<asp:CheckBox ID="chIncash" ClientIDMode="Static" runat="server" Text="из наличия" AutoPostBack="True" CssClass="bold" OnCheckedChanged="chIncash_CheckedChanged" />
+                
+                <div class="tabcontrol">
+            
+         <!--Источник списка номенклатуры-->         
+                    <!--<div class="floatRight">-->
+                    
+                    
+                        
+                        <div class="col-md-12 col-sm-12 box-source-tmc">
+                        <div id="pnlSourceSelect" runat="server" visible="true">
+                            <span class="box-source-tmc-title">Источник списка номенклатуры:</span> 
+        
+                            <span class="btn-group" data-toggle="buttons">
+                                
+                            <asp:LinkButton ID="lnkJust" CommandArgument="just" runat="server" ClientIDMode="Static" CssClass="" OnClick="lnkSelectREG_Click">Весь каталог</asp:LinkButton>
+                                
+                                
+                            <asp:LinkButton ID="lnkMyFavor" CssClass="" ClientIDMode="Static" OnClick="lnkSelectREG_Click" CommandArgument="my" runat="server">Из истории заказов</asp:LinkButton>
+                            
+                                
+                            <asp:LinkButton CommandArgument="spec" CssClass="" ClientIDMode="Static" ID="lnkSpecial" OnClick="lnkSelectREG_Click" runat="server">Распродажа</asp:LinkButton>
+                                
+                                <!-- &nbsp;<a href="../good/sales.aspx" class="bold">Акции!!!</a> -->
+                            </span>
+
+                            <span class="box-source-tmc-stock"><asp:CheckBox ID="chIncash" ClientIDMode="Static" runat="server" Text="из наличия" AutoPostBack="True" CssClass="bold" OnCheckedChanged="chIncash_CheckedChanged" /></span>
                         </div>
-                    </div>
+                        </div>
+                    
+        <!--#Источник списка номенклатуры-->
+
                     <div class="clearBoth"></div>
                     <asp:Panel ID="pnlStruct" runat="server">
-
-                        <div class="grayfon floatLeft">
-                            Режим выбора товарных категорий
+    
+         <!--Режим выбора товарных категорий-->
+                        <!--<div class="grayfon floatLeft">-->
+                        
+                            <div class="col-md-12 block-radio-tmc">
+                           <div class="row">
+                                 <div class="col-md-5">
+                            <span class="block-radio-tmc-title">Выбора категорий</span>
                             <asp:RadioButtonList ID="rbRegselect" runat="server" OnSelectedIndexChanged="rbRegselect_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                 <asp:ListItem Selected="True" Value="single">Одинарный</asp:ListItem>
                                 <asp:ListItem Value="multy">Множественный</asp:ListItem>
                             </asp:RadioButtonList>
-                            &nbsp;&nbsp;&nbsp;Вид списка категорий
+                            </div>
+                            <div class="col-md-5">
+                            <span class="block-radio-tmc-title">Список </span>
                                     <asp:RadioButtonList ID="rbVidcat" runat="server" OnSelectedIndexChanged="rbVidcat_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                                        <asp:ListItem Selected="True" Value="min">сворачиваемый</asp:ListItem>
-                                        <asp:ListItem Value="max">раскрытый</asp:ListItem>
+                                        <asp:ListItem Selected="True" Value="min">Сворачиваемый</asp:ListItem>
+                                        <asp:ListItem Value="max">Раскрытый</asp:ListItem>
                                     </asp:RadioButtonList>
-                        </div>
-                        <div class="floatRight">
-                            <asp:LinkButton ID="lbtnClearsearchcat" runat="server" OnClick="lbtnClearsearchcat_Click">очистить выбор категории</asp:LinkButton>
-                        </div>
+                            </div>
+                            <div class="col-md-2"><span class="block-radio-tmc-clean"><asp:LinkButton ID="lbtnClearsearchcat" runat="server" OnClick="lbtnClearsearchcat_Click">Очистить</asp:LinkButton></span></div>
+                            </div></div>
+                        
+        <!--#Режим выбора товарных категорий-->
+
+                      
+                  
+
+
+                </div>
                         <div class="clearBoth">
                         </div>
 
@@ -198,71 +232,89 @@
                                 value='' />
                             </div>
                         </asp:PlaceHolder>
-                        <div style="overflow: auto; height: 500px" id="divPlaceStruct">
+                        <div style="overflow: auto; height: 500px" class="tab-tmc-wrap" id="divPlaceStruct">
                             <asp:Literal ID="struct_place" runat="server"></asp:Literal>
                         </div>
                     </asp:Panel>
+
                     <asp:Panel ID="pnlList" runat="server">
                         <div class="message small">
                             <asp:Literal ID="lbListMessage" runat="server"></asp:Literal>
                         </div>
 
                         <%--<i><span class="red bold border"> * </span> - <span class="small">звездочка перед ценой означает заказную позицию и цена ориентировочная. Её нужно уточнить у своего менеджера. Двойной клик на цене - послать запрос по этой позиции.</span></i>--%>
-                        <div class="floatLeft big bold">
+                        
+                        <!--Все товарные направления-->
+                        <!--<div class="floatLeft big bold">
                             <asp:LinkButton ID="lbtnChangeTN" CssClass="italic micro bold" runat="server" OnClick="lbtnChangeTN_Click"><img src="../simg/16/arrow-left.png" alt="<=" title="К выбору Товарное направление/категории"/></asp:LinkButton>
                             <asp:Literal Visible="false" ID="lbSelTN" runat="server"></asp:Literal>
 
-                        </div>
-                        <div class="floatLeft-10" id="catTitle">&nbsp;</div>
+                        </div>-->
+                        <!--#Все товарные направления-->
+
+                        <!--<div class="floatLeft-10" id="catTitle">&nbsp;</div>-->
                         <div class="clearBoth">
                         </div>
-                        <table width="100%" class=" orangefon">
-                            <tr>
-                                <td>
-                                    <div class=" orangefon padding5 ">
-                                        <div class="small padding2 white">
-                                            Бренд:
+                        
+                        <!--Фильтр-->
+                        <div class="block-filtr-tmc">
+                        
+                                            <div class="col-md-10">
+                                            <div class="form-inline">
+                                                <span class="filter-tmc-item">Бренд:
                             <asp:DropDownList ID="dlBrends" runat="server" Width="160px" AutoPostBack="true"
                                 OnSelectedIndexChanged="dlBrends_SelectedIndexChanged" ClientIDMode="Static" data-placeholder="Выберите Бренд">
-                            </asp:DropDownList>&nbsp;&nbsp;Категория:
+                            </asp:DropDownList></span>
+                                            
+                                            <span class="filter-tmc-item">Категория:
                             <asp:DropDownList ID="dlTK" runat="server" Width="200px" CssClass="small" AutoPostBack="true" OnSelectedIndexChanged="dlTK_SelectedIndexChanged" ClientIDMode="Static" data-placeholder="Выберите Категорию">
-                            </asp:DropDownList>
-                                            &nbsp;&nbsp;Номенклатура:
+                            </asp:DropDownList></span>
+                                            
+                                            
+                                            
+                                            <span class="filter-tmc-item">Номенклатура:
                             <asp:DropDownList ID="dlNames" runat="server" OnSelectedIndexChanged="txSearch_TextChanged" data-placeholder="Выберите номенклатуру" Width="160px"
                                 ClientIDMode="Static" AutoPostBack="True">
-                            </asp:DropDownList>
-                                            &nbsp;
+                            </asp:DropDownList> </span>
+                                            </div>
+
+
+                                            </div>
+                                           
+                                            <div class="col-md-2">
+                                                <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" CssClass=" clear-filter " runat="server" OnClick="btnClearFilter_Click">сбросить фильтр</asp:LinkButton>
+                                        <asp:Button ID="Button1" CssClass="acptfltr" runat="server" OnClick="btnAcptFlt_Click" Text="применить фильтр" Visible="false" />
+
+                                             </div>                               
+                                        
+                                        
+                                        
+                                            <div class="col-md-12 search-row"><span class="search-row-title">Поиск по коду, артикулу или части названия</span>
+
+                                                <asp:TextBox ID="txSearch" runat="server" CssClass="search-input normalsize" MaxLength="150"></asp:TextBox><asp:Button Visible="true" ClientIDMode="Static" ID="btnSearchGood" runat="server" CssClass="btn btn-default btn-xs" Text="Найти" OnClick="txSearch_TextChanged" />
+                                            </div>
+                                
                             
+                                      
 
-                            <br />
-                                        </div>
-                                        <div class="white padding2 bold">
-                                            поиск по коду, артикулу или части названия
-                            <asp:TextBox ID="txSearch" runat="server" Width="250px" CssClass="normalsize" MaxLength="150">&nbsp;</asp:TextBox><asp:Button Visible="true" ClientIDMode="Static" ID="btnSearchGood" runat="server" CssClass="f-bu" Text="найти" OnClick="txSearch_TextChanged" />
-                                        </div>
-                                    </div>
-                                </td>
-                                <td width="120px">
-                                    <style type="text/css">
-                                        .acptfltr {
-                                            height: 60px;
-                                            border: solid 1px #669999;
-                                            background-color: #0057A8;
-                                            margin-left: 3px;
-                                            color: #fff;
-                                        }
-                                    </style>
-                                    <div class="">
-                                        <asp:LinkButton ID="btnClearFilter" ClientIDMode="Static" CssClass="small white clear-filter " runat="server" OnClick="btnClearFilter_Click">сбросить фильтр</asp:LinkButton>
-                                        <asp:Button ID="btnAcptFlt" CssClass="acptfltr" runat="server" OnClick="btnAcptFlt_Click" Text="применить фильтр" Visible="false" />
-                                    </div>
+
+                                   
+                                
+                              
+                                   
+                               
+
                                     <div class="clearBoth"></div>
-                                </td>
-                            </tr>
-                        </table>
-
-
-                        на странице
+                                
+                            
+                            </div>
+                        <!--#фильтр-->
+                       
+                         <!-- Кол-во позиций на странице -->
+                       
+                        
+                        <div class="col-md-12 page-count-tmc">
+                        На странице
                         <asp:RadioButtonList ID="rbPageSize" runat="server" AutoPostBack="true"
                             RepeatDirection="Horizontal" RepeatLayout="Flow"
                             OnSelectedIndexChanged="rbPageSize_SelectedIndexChanged">
@@ -270,7 +322,12 @@
                             <asp:ListItem Text="30" Value="30"></asp:ListItem>
                             <asp:ListItem Text="50" Value="50"></asp:ListItem>
                         </asp:RadioButtonList>
-                        позиций
+                        позиций 
+                            </div>
+                        <!-- #Кол-во позиций на странице -->
+
+                        <!--Номенклатура-->
+                        <div>
                         <asp:DataGrid ID="dgList" CssClass="grid" runat="server" AllowPaging="True" PageSize="15"
                             OnPageIndexChanged="dgList_PageIndexChanged" AutoGenerateColumns="False" CellPadding="4"
                             OnItemDataBound="dgList_ItemDataBound" Width="100%" AllowSorting="True" OnSortCommand="dgList_SortCommand">
@@ -300,12 +357,14 @@
                                 Font-Size="Large" Mode="NumericPages" Position="TopAndBottom" />
                             <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                         </asp:DataGrid>
+                            </div>
+                        <!--Номенклатура-->
 
                     </asp:Panel>
                     <asp:Panel ID="pnlOrder" runat="server">
                     </asp:Panel>
 
-                </div>
+                
             </td>
         </tr>
     </table>

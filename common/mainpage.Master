@@ -186,7 +186,7 @@
                 </div> -->
     <!--#Блок контакты-->
     <!--Блок главное меню-->
-                <!--<div class="g-row">--><nav class="navbar navbar-orange top-c">
+                <!--<div class="g-row">--><div class="row"><nav class="navbar navbar-orange top-c">
                     <!--<div class="g-12">--><div class="col-md-10 col-xs-10">
                         <!--<div id="mainmenu">-->
                             <asp:Literal ID="blockMainMenu" runat="server"></asp:Literal>
@@ -213,7 +213,7 @@
 
                     </div>
                     <!--#Корзина-->
-                <!--</div>--></nav>
+                <!--</div>--></nav></div>
     <!--#Блок главное меню-->
             <!--Основная часть-->
     <div class="page-content">
